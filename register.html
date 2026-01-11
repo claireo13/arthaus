@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Account - ArtHaus</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ideas.css" />
+</head>
+
+<body class="page-auth page-register">
+<div class="page">
+
+  <header class="site-header">
+    <div class="logo">ArtHaus</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="domestic.html">Residential</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero hero--banner" aria-label="Create an account">
+    <div class="hero__banner-content">
+      <h1 class="hero__title">Create your account</h1>
+      <p class="hero__text">
+        Save inspiration, build moodboards, and request a consultation with a clear style direction.
+      </p>
+    </div>
+  </section>
+
+  <section aria-label="Registration form">
+    <h2 class="section-heading">Sign up</h2>
+    <p class="section-subtitle">A few details and you’re ready to start saving ideas.</p>
+
+    <div class="hero__card">
+      <div class="hero__card-title">Account details</div>
+
+      <form action="#" method="post" class="auth-form">
+        <div class="auth-grid">
+          <label class="auth-field">
+            <span class="auth-label">Full name</span>
+            <input class="auth-input" type="text" name="name" autocomplete="name" required>
+          </label>
+
+          <label class="auth-field">
+            <span class="auth-label">Email</span>
+            <input class="auth-input" type="email" name="email" autocomplete="email" required>
+          </label>
+
+          <label class="auth-field">
+            <span class="auth-label">Password</span>
+            <input class="auth-input" type="password" name="password" autocomplete="new-password" required>
+          </label>
+
+          <label class="auth-field">
+            <span class="auth-label">Confirm password</span>
+            <input class="auth-input" type="password" name="password_confirm" autocomplete="new-password" required>
+          </label>
+        </div>
+
+        <label class="auth-check">
+          <input type="checkbox" required>
+          <span>I agree to the terms and privacy policy.</span>
+        </label>
+
+        <button class="auth-submit" type="submit">Create account</button>
+
+        <div class="auth-alt">
+          Already have an account? <a href="login.html">Login</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> ArtHaus Interiors
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

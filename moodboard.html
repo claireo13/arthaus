@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moodboard - ArtHaus</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ideas.css" />
+</head>
+
+<body class="page-moodboard">
+<div class="page">
+
+  <header class="site-header">
+    <div class="logo">ArtHaus</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="domestic.html">Residential</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <section class="hero hero--banner" aria-label="Moodboard">
+    <div class="hero__banner-content">
+      <h1 class="hero__title">Your Moodboard</h1>
+      <p class="hero__text">
+        Collect inspiration, refine your direction, and share a clear brief with us.
+      </p>
+    </div>
+  </section>
+
+  <section aria-label="Moodboard content">
+    <h2 class="section-heading">Saved inspiration</h2>
+    <p class="section-subtitle">
+      Keep this tight and intentional — aim for 8–16 images that clearly reflect your style.
+    </p>
+
+    <div class="filter-bar">
+      <div class="filter-pill-row">
+        <div class="filter-pill-group">
+          <button class="filter-pill" type="button">All items</button>
+          <button class="filter-pill" type="button">Residential</button>
+          <button class="filter-pill" type="button">Commercial</button>
+        </div>
+
+        <label>
+          <span style="font-size:0.78rem;opacity:.7;margin-right:.25rem;">Sort:</span>
+          <select class="sort-select">
+            <option>Recently added</option>
+            <option>Room A–Z</option>
+            <option>Style A–Z</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <!-- Mosaic grid using your existing gallery-thumb look -->
+    <div class="style-group__grid">
+      <!-- Sample items (replace with saved items later) -->
+      <div class="gallery-thumb">
+        <div class="gallery-thumb__inner">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=70"
+               alt="Saved inspiration example" loading="lazy" decoding="async">
+          <div class="gallery-thumb__body">
+            <div class="gallery-thumb__room">Kitchen</div>
+            <div class="gallery-thumb__title">Warm minimal cabinetry</div>
+            <div class="gallery-thumb__style">Style: Minimalist</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-thumb">
+        <div class="gallery-thumb__inner">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=70"
+               alt="Saved inspiration example" loading="lazy" decoding="async">
+          <div class="gallery-thumb__body">
+            <div class="gallery-thumb__room">Living room</div>
+            <div class="gallery-thumb__title">Soft Scandinavian light</div>
+            <div class="gallery-thumb__style">Style: Scandinavian</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-thumb">
+        <div class="gallery-thumb__inner">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=70"
+               alt="Saved inspiration example" loading="lazy" decoding="async">
+          <div class="gallery-thumb__body">
+            <div class="gallery-thumb__room">Office</div>
+            <div class="gallery-thumb__title">Clean meeting corner</div>
+            <div class="gallery-thumb__style">Style: Modern</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-thumb">
+        <div class="gallery-thumb__inner">
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=70"
+               alt="Saved inspiration example" loading="lazy" decoding="async">
+          <div class="gallery-thumb__body">
+            <div class="gallery-thumb__room">Bedroom</div>
+            <div class="gallery-thumb__title">Calm textures and neutrals</div>
+            <div class="gallery-thumb__style">Style: Contemporary</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__card" style="margin-top: 1.5rem;">
+      <div class="hero__card-title">Share your brief</div>
+      <p style="margin:0;opacity:.8;max-width:70ch;">
+        When you’re ready, send your moodboard along with your room list and timeline.
+        We’ll reply with next steps and a consultation plan.
+      </p>
+      <div style="margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.6rem;">
+        <a class="hero__link" href="contact.html">Request consultation →</a>
+        <a class="hero__link" href="domestic.html">Add more residential ideas →</a>
+        <a class="hero__link" href="commercial.html">Add more commercial ideas →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> ArtHaus Interiors
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

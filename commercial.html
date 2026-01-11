@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commercial Inspiration - ArtHaus Interiors</title>
+
+  <!-- Modern minimalist font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ideas.css" />
+</head>
+
+<!-- Set these per page:
+     page 1: data-page="1"
+     page 2: data-page="2"
+     update data-total-pages to match how many pages you create
+-->
+<body class="page-commercial" data-page="1" data-total-pages="2">
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">ArtHaus</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="domestic.html">Residential</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero--banner">
+    <div class="hero__banner-content">
+      <h1 class="hero__title">
+        Create standout <span class="hero__highlight">commercial spaces</span> that people remember.
+      </h1>
+      <p class="hero__text">
+        Browse ideas for offices, hotels, retail and hospitality. Filter by room and style,
+        then let us shape a concept that fits your brand, customers, and budget.
+      </p>
+      <a href="#rooms" class="hero__link">Browse spaces ↓</a>
+    </div>
+  </section>
+
+  <!-- ROOM STRIP -->
+  <section id="rooms">
+    <div class="room-strip">
+
+      <!-- Links work both as normal navigation (?room=...) and also filter instantly via JS intercept -->
+      <a href="commercial.html?room=office" class="room-card-link" data-room-link="office">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/office/office-modern-medium.jpg" alt="Office design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Office</div>
+        </div>
+      </a>
+
+      <a href="commercial.html?room=hotel" class="room-card-link" data-room-link="hotel">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/hotel/hotel-contemporary-medium.jpg" alt="Hotel design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Hotel</div>
+        </div>
+      </a>
+
+      <a href="commercial.html?room=reception" class="room-card-link" data-room-link="reception">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/reception/reception-modern-medium.jpg" alt="Reception design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Reception</div>
+        </div>
+      </a>
+
+      <a href="commercial.html?room=restaurant" class="room-card-link" data-room-link="restaurant">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/restaurant/restaurant-industrial-medium.jpg" alt="Restaurant design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Restaurant</div>
+        </div>
+      </a>
+
+      <a href="commercial.html?room=cafe" class="room-card-link" data-room-link="cafe">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/cafe/cafe-scandinavian-medium.jpg" alt="Cafe design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Cafe</div>
+        </div>
+      </a>
+
+      <a href="commercial.html?room=retail" class="room-card-link" data-room-link="retail">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/retail/retail-minimalist-medium.jpg" alt="Retail design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Retail</div>
+        </div>
+      </a>
+
+      <a href="commercial.html?room=meeting" class="room-card-link" data-room-link="meeting">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/meeting/meeting-modern-medium.jpg" alt="Meeting room design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Meeting room</div>
+        </div>
+      </a>
+
+      <a href="commercial.html?room=spa" class="room-card-link" data-room-link="spa">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/commercial/spa/spa-coastal-medium.jpg" alt="Spa design inspiration" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Spa</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section aria-label="Commercial inspiration gallery">
+
+    <div class="filter-bar">
+      <div class="filter-pill-row">
+
+        <div class="filter-pill-group">
+
+          <!-- ROOM FILTER -->
+          <div class="filter-pill-wrapper" id="room-wrapper">
+            <button class="filter-pill" id="room-pill" type="button" aria-haspopup="true" aria-expanded="false">
+              <span id="room-pill-label">All spaces</span>
+              <span class="filter-pill__caret">▾</span>
+            </button>
+            <div class="filter-menu" id="room-menu" role="menu">
+              <button class="filter-menu__item" type="button" data-room-value="all">All spaces</button>
+              <button class="filter-menu__item" type="button" data-room-value="office">Office</button>
+              <button class="filter-menu__item" type="button" data-room-value="hotel">Hotel</button>
+              <button class="filter-menu__item" type="button" data-room-value="reception">Reception</button>
+              <button class="filter-menu__item" type="button" data-room-value="restaurant">Restaurant</button>
+              <button class="filter-menu__item" type="button" data-room-value="cafe">Cafe</button>
+              <button class="filter-menu__item" type="button" data-room-value="retail">Retail</button>
+              <button class="filter-menu__item" type="button" data-room-value="meeting">Meeting room</button>
+              <button class="filter-menu__item" type="button" data-room-value="spa">Spa</button>
+            </div>
+          </div>
+
+          <!-- STYLE FILTER -->
+          <div class="filter-pill-wrapper" id="style-wrapper">
+            <button class="filter-pill" id="style-pill" type="button" aria-haspopup="true" aria-expanded="false">
+              <span id="style-pill-label">All styles</span>
+              <span class="filter-pill__caret">▾</span>
+            </button>
+            <div class="filter-menu" id="style-menu" role="menu">
+              <button class="filter-menu__item" type="button" data-style-value="all">All styles</button>
+              <button class="filter-menu__item" type="button" data-style-value="minimalist">Minimalist</button>
+              <button class="filter-menu__item" type="button" data-style-value="modern">Modern</button>
+              <button class="filter-menu__item" type="button" data-style-value="eclectic">Eclectic</button>
+              <button class="filter-menu__item" type="button" data-style-value="rustic">Rustic</button>
+              <button class="filter-menu__item" type="button" data-style-value="contemporary">Contemporary</button>
+              <button class="filter-menu__item" type="button" data-style-value="traditional">Traditional</button>
+              <button class="filter-menu__item" type="button" data-style-value="world">World</button>
+              <button class="filter-menu__item" type="button" data-style-value="coastal">Coastal</button>
+              <button class="filter-menu__item" type="button" data-style-value="industrial">Industrial</button>
+              <button class="filter-menu__item" type="button" data-style-value="country">Country</button>
+              <button class="filter-menu__item" type="button" data-style-value="scandinavian">Scandinavian</button>
+              <button class="filter-menu__item" type="button" data-style-value="victorian">Victorian</button>
+            </div>
+          </div>
+
+        </div>
+
+        <label>
+          <span style="font-size:0.78rem;opacity:.7;margin-right:.25rem;">Sort visible:</span>
+          <select id="sort-select" class="sort-select">
+            <option value="default">Default order</option>
+            <option value="room">Space A–Z</option>
+            <option value="title">Title A–Z</option>
+          </select>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- STYLE GROUPS -->
+    <div id="style-groups">
+
+      <!-- Aim for 8–12+ images per style section so the mosaic feels intentional -->
+
+      <!-- MINIMALIST -->
+      <section class="style-group" data-style-group="minimalist">
+        <h3 class="style-group__title">Minimalist</h3>
+        <div class="style-group__grid">
+
+          <div class="gallery-thumb" data-room="office" data-style="minimalist" data-title="Minimal workspace">
+            <div class="gallery-thumb__inner">
+              <img src="images/commercial/office/office-minimalist-1.jpg" alt="Minimalist office workspace" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Office</div>
+                <div class="gallery-thumb__title">Minimal workspace</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="retail" data-style="minimalist" data-title="Calm retail display">
+            <div class="gallery-thumb__inner">
+              <img src="images/commercial/retail/retail-minimalist-1.jpg" alt="Minimalist retail interior" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Retail</div>
+                <div class="gallery-thumb__title">Calm retail display</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more minimalist images... -->
+
+        </div>
+      </section>
+
+      <!-- MODERN -->
+      <section class="style-group" data-style-group="modern">
+        <h3 class="style-group__title">Modern</h3>
+        <div class="style-group__grid">
+
+          <div class="gallery-thumb" data-room="reception" data-style="modern" data-title="Brand-forward reception">
+            <div class="gallery-thumb__inner">
+              <img src="images/commercial/reception/reception-modern-1.jpg" alt="Modern reception interior" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Reception</div>
+                <div class="gallery-thumb__title">Brand-forward reception</div>
+                <div class="gallery-thumb__style">Style: Modern</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="meeting" data-style="modern" data-title="Modern meeting space">
+            <div class="gallery-thumb__inner">
+              <img src="images/commercial/meeting/meeting-modern-1.jpg" alt="Modern meeting room" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Meeting room</div>
+                <div class="gallery-thumb__title">Modern meeting space</div>
+                <div class="gallery-thumb__style">Style: Modern</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more modern images... -->
+
+        </div>
+      </section>
+
+      <!-- INDUSTRIAL -->
+      <section class="style-group" data-style-group="industrial">
+        <h3 class="style-group__title">Industrial</h3>
+        <div class="style-group__grid">
+
+          <div class="gallery-thumb" data-room="restaurant" data-style="industrial" data-title="Raw textures dining">
+            <div class="gallery-thumb__inner">
+              <img src="images/commercial/restaurant/restaurant-industrial-1.jpg" alt="Industrial restaurant interior" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Restaurant</div>
+                <div class="gallery-thumb__title">Raw textures dining</div>
+                <div class="gallery-thumb__style">Style: Industrial</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more industrial images... -->
+
+        </div>
+      </section>
+
+      <!-- Add the other style groups exactly like domestic when you're ready -->
+
+    </div>
+  </section>
+
+  <!-- PAGER -->
+  <nav class="pager" aria-label="Gallery pages">
+    <a class="pager__prev" href="commercial.html" data-pager-prev>← Previous</a>
+    <a class="pager__link pager__link--current" href="commercial.html">1</a>
+    <a class="pager__link" href="commercial-page2.html">2</a>
+    <a class="pager__next" href="commercial-page2.html" data-pager-next>Next →</a>
+  </nav>
+
+  <footer class="footer">
+    Commercial inspiration is only the start — we’ll tailor finishes, flow, lighting, and branding to your real-world operations.
+  </footer>
+
+</div>
+
+<!-- ✅ Same working dropdown + filtering + sorting + URL params + room-strip click -->
+<script>
+(function () {
+  const styleGroupsWrap = document.getElementById("style-groups");
+  if (!styleGroupsWrap) return;
+
+  const roomWrapper = document.getElementById("room-wrapper");
+  const styleWrapper = document.getElementById("style-wrapper");
+  const roomPill = document.getElementById("room-pill");
+  const stylePill = document.getElementById("style-pill");
+  const roomMenu = document.getElementById("room-menu");
+  const styleMenu = document.getElementById("style-menu");
+  const roomLabel = document.getElementById("room-pill-label");
+  const styleLabel = document.getElementById("style-pill-label");
+  const sortSelect = document.getElementById("sort-select");
+
+  let roomFilter = "all";
+  let styleFilter = "all";
+  let sortMode = "default";
+
+  const allCards = Array.from(document.querySelectorAll(".gallery-thumb"));
+  const allSections = Array.from(document.querySelectorAll(".style-group"));
+
+  function openMenu(wrapper, pill, menu) {
+    wrapper.classList.add("is-open");
+    pill.setAttribute("aria-expanded", "true");
+    menu.classList.add("filter-menu--open");
+  }
+  function closeMenu(wrapper, pill, menu) {
+    wrapper.classList.remove("is-open");
+    pill.setAttribute("aria-expanded", "false");
+    menu.classList.remove("filter-menu--open");
+  }
+  function toggleMenu(wrapper, pill, menu) {
+    const isOpen = menu.classList.contains("filter-menu--open");
+    if (isOpen) closeMenu(wrapper, pill, menu);
+    else {
+      closeMenu(roomWrapper, roomPill, roomMenu);
+      closeMenu(styleWrapper, stylePill, styleMenu);
+      openMenu(wrapper, pill, menu);
+    }
+  }
+
+  roomPill.addEventListener("click", () => toggleMenu(roomWrapper, roomPill, roomMenu));
+  stylePill.addEventListener("click", () => toggleMenu(styleWrapper, stylePill, styleMenu));
+
+  document.addEventListener("click", (e) => {
+    const clickedRoom = roomWrapper.contains(e.target);
+    const clickedStyle = styleWrapper.contains(e.target);
+    if (!clickedRoom) closeMenu(roomWrapper, roomPill, roomMenu);
+    if (!clickedStyle) closeMenu(styleWrapper, stylePill, styleMenu);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeMenu(roomWrapper, roomPill, roomMenu);
+      closeMenu(styleWrapper, stylePill, styleMenu);
+    }
+  });
+
+  function cardMatches(card) {
+    const r = card.getAttribute("data-room");
+    const s = card.getAttribute("data-style");
+    const roomOk = (roomFilter === "all") || (r === roomFilter);
+    const styleOk = (styleFilter === "all") || (s === styleFilter);
+    return roomOk && styleOk;
+  }
+
+  function applyVisibility() {
+    allCards.forEach(card => {
+      card.style.display = cardMatches(card) ? "inline-block" : "none";
+    });
+
+    allSections.forEach(section => {
+      const visibleCards = section.querySelectorAll('.gallery-thumb:not([style*="display: none"])');
+      section.style.display = visibleCards.length ? "" : "none";
+    });
+  }
+
+  function sortVisibleWithinSections() {
+    if (sortMode === "default") return;
+
+    allSections.forEach(section => {
+      const grid = section.querySelector(".style-group__grid");
+      if (!grid) return;
+
+      const cards = Array.from(grid.querySelectorAll(".gallery-thumb"))
+        .filter(c => c.style.display !== "none");
+
+      const keyFn = (c) => {
+        if (sortMode === "room") return (c.getAttribute("data-room") || "").toLowerCase();
+        if (sortMode === "title") return (c.getAttribute("data-title") || "").toLowerCase();
+        return "";
+      };
+
+      cards.sort((a, b) => keyFn(a).localeCompare(keyFn(b)));
+      cards.forEach(c => grid.appendChild(c));
+    });
+  }
+
+  function applyAll() {
+    applyVisibility();
+    sortVisibleWithinSections();
+
+    const url = new URL(window.location.href);
+    if (roomFilter === "all") url.searchParams.delete("room"); else url.searchParams.set("room", roomFilter);
+    if (styleFilter === "all") url.searchParams.delete("style"); else url.searchParams.set("style", styleFilter);
+    window.history.replaceState({}, "", url);
+  }
+
+  roomMenu.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-room-value]");
+    if (!btn) return;
+    roomFilter = btn.getAttribute("data-room-value");
+    roomLabel.textContent = btn.textContent;
+    closeMenu(roomWrapper, roomPill, roomMenu);
+    applyAll();
+    styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+  });
+
+  styleMenu.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-style-value]");
+    if (!btn) return;
+    styleFilter = btn.getAttribute("data-style-value");
+    styleLabel.textContent = btn.textContent;
+    closeMenu(styleWrapper, stylePill, styleMenu);
+    applyAll();
+    styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+  });
+
+  sortSelect.addEventListener("change", () => {
+    sortMode = sortSelect.value || "default";
+    applyAll();
+  });
+
+  document.querySelectorAll("[data-room-link]").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      roomFilter = link.getAttribute("data-room-link") || "all";
+      const btn = roomMenu.querySelector(`[data-room-value="${roomFilter}"]`);
+      roomLabel.textContent = btn ? btn.textContent : "All spaces";
+      applyAll();
+      styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const roomFromUrl = params.get("room");
+  const styleFromUrl = params.get("style");
+
+  if (roomFromUrl && roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`)) {
+    roomFilter = roomFromUrl;
+    roomLabel.textContent = roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`).textContent;
+  }
+  if (styleFromUrl && styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`)) {
+    styleFilter = styleFromUrl;
+    styleLabel.textContent = styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`).textContent;
+  }
+
+  const page = parseInt(document.body.getAttribute("data-page") || "1", 10);
+  const total = parseInt(document.body.getAttribute("data-total-pages") || "1", 10);
+  const prev = document.querySelector("[data-pager-prev]");
+  const next = document.querySelector("[data-pager-next]");
+
+  if (prev && page <= 1) {
+    prev.classList.add("is-disabled");
+    prev.setAttribute("aria-disabled", "true");
+    prev.setAttribute("tabindex", "-1");
+    prev.href = "#";
+  }
+  if (next && page >= total) {
+    next.classList.add("is-disabled");
+    next.setAttribute("aria-disabled", "true");
+    next.setAttribute("tabindex", "-1");
+    next.href = "#";
+  }
+
+  applyAll();
+})();
+</script>
+
+</body>
+</html>
+

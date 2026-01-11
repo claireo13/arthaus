@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Domestic Inspiration - ArtHaus Interiors</title>
+
+  <!-- Modern minimalist font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ideas.css" />
+</head>
+<body class="page-domestic" data-page="1" data-total-pages="2">
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">ArtHaus</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="domestic.html">Residential</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero--banner">
+    <div class="hero__banner-content">
+      <h1 class="hero__title">
+        Discover calm, modern <span class="hero__highlight">spaces</span> for every room.
+      </h1>
+      <p class="hero__text">
+        Start with a room, then explore different styles — minimalist, modern, Scandinavian and more.
+        When you find the style you love, we’ll help translate it into a design for your home.
+      </p>
+      <a href="#rooms" class="hero__link">Browse rooms ↓</a>
+    </div>
+  </section>
+
+  <!-- ROOM STRIP -->
+  <section id="rooms">
+    <div class="room-strip">
+
+      <!-- These links ALSO filter (JS intercepts) and also work without JS via ?room= -->
+      <a href="domestic.html?room=living" class="room-card-link" data-room-link="living">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/living/livingroom-coastal-medium.jpg" alt="Living room interior" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Living room</div>
+        </div>
+      </a>
+
+      <a href="domestic.html?room=dining" class="room-card-link" data-room-link="dining">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/dining/dining-rustic-small.jpg" alt="Dining room interior" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Dining room</div>
+        </div>
+      </a>
+
+      <a href="domestic.html?room=kitchen" class="room-card-link" data-room-link="kitchen">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/kitchen/kitchen-scandinavian-small.jpg" alt="Kitchen interior" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Kitchen</div>
+        </div>
+      </a>
+
+      <a href="domestic.html?room=bathroom" class="room-card-link" data-room-link="bathroom">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/bathroom/bathroom-rustic-small.jpg" alt="Bathroom interior" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Bathroom</div>
+        </div>
+      </a>
+
+      <a href="domestic.html?room=bedroom" class="room-card-link" data-room-link="bedroom">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/bedroom/bedroom-modern-medium.jpg" alt="Bedroom interior" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Bedroom</div>
+        </div>
+      </a>
+
+      <a href="domestic.html?room=nursery" class="room-card-link" data-room-link="nursery">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/nursery/nursery-scandinavian-small.jpg" alt="Nursery interior" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Nursery</div>
+        </div>
+      </a>
+
+      <a href="domestic.html?room=hallway" class="room-card-link" data-room-link="hallway">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/hall/hall-modern-large.jpg" alt="Hallway interior" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Hall &amp; entry</div>
+        </div>
+      </a>
+
+      <a href="domestic.html?room=garden" class="room-card-link" data-room-link="garden">
+        <div class="room-card">
+          <div class="room-card__image">
+            <img src="images/domestic/garden/garden-rustic-medium.jpg" alt="Garden design" loading="lazy" decoding="async">
+          </div>
+          <div class="room-card__label">Garden</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section aria-label="Domestic inspiration gallery">
+
+    <div class="filter-bar">
+      <div class="filter-pill-row">
+
+        <div class="filter-pill-group">
+
+          <!-- ROOM FILTER -->
+          <div class="filter-pill-wrapper" id="room-wrapper">
+            <button class="filter-pill" id="room-pill" type="button" aria-haspopup="true" aria-expanded="false">
+              <span id="room-pill-label">All rooms</span>
+              <span class="filter-pill__caret">▾</span>
+            </button>
+            <div class="filter-menu" id="room-menu" role="menu">
+              <button class="filter-menu__item" type="button" data-room-value="all">All rooms</button>
+              <button class="filter-menu__item" type="button" data-room-value="living">Living</button>
+              <button class="filter-menu__item" type="button" data-room-value="dining">Dining</button>
+              <button class="filter-menu__item" type="button" data-room-value="kitchen">Kitchen</button>
+              <button class="filter-menu__item" type="button" data-room-value="bedroom">Bedroom</button>
+              <button class="filter-menu__item" type="button" data-room-value="nursery">Nursery</button>
+              <button class="filter-menu__item" type="button" data-room-value="bathroom">Bathroom</button>
+              <button class="filter-menu__item" type="button" data-room-value="hallway">Hallway</button>
+              <button class="filter-menu__item" type="button" data-room-value="garden">Garden</button>
+            </div>
+          </div>
+
+          <!-- STYLE FILTER -->
+          <div class="filter-pill-wrapper" id="style-wrapper">
+            <button class="filter-pill" id="style-pill" type="button" aria-haspopup="true" aria-expanded="false">
+              <span id="style-pill-label">All styles</span>
+              <span class="filter-pill__caret">▾</span>
+            </button>
+            <div class="filter-menu" id="style-menu" role="menu">
+              <button class="filter-menu__item" type="button" data-style-value="all">All styles</button>
+              <button class="filter-menu__item" type="button" data-style-value="minimalist">Minimalist</button>
+              <button class="filter-menu__item" type="button" data-style-value="modern">Modern</button>
+              <button class="filter-menu__item" type="button" data-style-value="scandinavian">Scandinavian</button>
+              <button class="filter-menu__item" type="button" data-style-value="rustic">Rustic</button>
+              <button class="filter-menu__item" type="button" data-style-value="industrial">Industrial</button>
+              <button class="filter-menu__item" type="button" data-style-value="traditional">Traditional</button>
+              <button class="filter-menu__item" type="button" data-style-value="victorian">Victorian</button>
+            </div>
+          </div>
+
+        </div>
+
+        <label>
+          <span style="font-size:0.78rem;opacity:.7;margin-right:.25rem;">Sort visible:</span>
+          <select id="sort-select" class="sort-select">
+            <option value="default">Default order</option>
+            <option value="room">Room A–Z</option>
+            <option value="title">Title A–Z</option>
+          </select>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- STYLE GROUPS -->
+    <div id="style-groups">
+
+      <!-- Aim for 8–12+ images per style section so the mosaic feels intentional -->
+
+      <!-- MINIMALIST -->
+      <section class="style-group" data-style-group="minimalist">
+        <h3 class="style-group__title">Minimalist</h3>
+        <div class="style-group__grid">
+
+          <div class="gallery-thumb" data-room="living" data-style="minimalist" data-title="Soft minimalist lounge">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/living/living-minimalist-medium.jpg" alt="Soft minimalist living room with neutral sofa" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Living room</div>
+                <div class="gallery-thumb__title">Soft minimalist lounge</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Kitchen</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Kitchen</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="bedroom" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/bedroom/bedroom-minimalist-medium.jpg" alt="Minimal bedroom" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Hallway</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="bathroom" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/bathroom/bathroom-minimalist-small.jpg" alt="Minimal bathroom" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Hallway</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="living" data-style="minimalist" data-title="Soft minimalist lounge">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/living/living-minimalist-medium.jpg" alt="Soft minimalist living room with neutral sofa" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Living room</div>
+                <div class="gallery-thumb__title">Soft minimalist lounge</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Kitchen</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Kitchen</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="bedroom" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/bedroom/bedroom-minimalist-medium.jpg" alt="Minimal bedroom" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Hallway</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="bathroom" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/bathroom/bathroom-minimalist-small.jpg" alt="Minimal bathroom" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Hallway</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Kitchen</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Kitchen</div>
+                <div class="gallery-thumb__title">Clean entry moment</div>
+                <div class="gallery-thumb__style">Style: Minimalist</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MODERN -->
+      <section class="style-group" data-style-group="modern">
+        <h3 class="style-group__title">Modern</h3>
+        <div class="style-group__grid">
+
+          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Living room</div>
+                <div class="gallery-thumb__title">Modern living space</div>
+                <div class="gallery-thumb__style">Style: Modern</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Living room</div>
+                <div class="gallery-thumb__title">Modern living space</div>
+                <div class="gallery-thumb__style">Style: Modern</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Living room</div>
+                <div class="gallery-thumb__title">Modern living space</div>
+                <div class="gallery-thumb__style">Style: Modern</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
+            <div class="gallery-thumb__inner">
+              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
+              <div class="gallery-thumb__body">
+                <div class="gallery-thumb__room">Living room</div>
+                <div class="gallery-thumb__title">Modern living space</div>
+                <div class="gallery-thumb__style">Style: Modern</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Add other style sections here -->
+
+    </div>
+  </section>
+
+  <!-- PAGER (Prev hidden on first page, Next hidden on last page via JS) -->
+  <nav class="pager" aria-label="Gallery pages">
+    <a class="pager__prev" href="domestic.html" data-pager-prev>← Previous</a>
+    <a class="pager__link pager__link--current" href="domestic.html">1</a>
+    <a class="pager__link" href="domestic-page2.html">2</a>
+    <a class="pager__next" href="domestic-page2.html" data-pager-next>Next →</a>
+  </nav>
+
+  <footer class="footer">
+    These examples are a starting point. We’ll adapt proportions, materials, and layouts to your actual space and lifestyle.
+  </footer>
+
+</div>
+
+<!-- ✅ Working dropdown + filtering + sorting + URL params + room-strip click -->
+<script>
+(function () {
+  const styleGroupsWrap = document.getElementById("style-groups");
+  if (!styleGroupsWrap) return;
+
+  const roomWrapper = document.getElementById("room-wrapper");
+  const styleWrapper = document.getElementById("style-wrapper");
+  const roomPill = document.getElementById("room-pill");
+  const stylePill = document.getElementById("style-pill");
+  const roomMenu = document.getElementById("room-menu");
+  const styleMenu = document.getElementById("style-menu");
+  const roomLabel = document.getElementById("room-pill-label");
+  const styleLabel = document.getElementById("style-pill-label");
+  const sortSelect = document.getElementById("sort-select");
+
+  let roomFilter = "all";
+  let styleFilter = "all";
+  let sortMode = "default";
+
+  const allCards = Array.from(document.querySelectorAll(".gallery-thumb"));
+  const allSections = Array.from(document.querySelectorAll(".style-group"));
+
+  // ----- Dropdown behaviour (overlays, no layout shift) -----
+  function openMenu(wrapper, pill, menu) {
+    wrapper.classList.add("is-open");
+    pill.setAttribute("aria-expanded", "true");
+    menu.classList.add("filter-menu--open");
+  }
+
+  function closeMenu(wrapper, pill, menu) {
+    wrapper.classList.remove("is-open");
+    pill.setAttribute("aria-expanded", "false");
+    menu.classList.remove("filter-menu--open");
+  }
+
+  function toggleMenu(wrapper, pill, menu) {
+    const isOpen = menu.classList.contains("filter-menu--open");
+    if (isOpen) closeMenu(wrapper, pill, menu);
+    else {
+      // close other menu
+      closeMenu(roomWrapper, roomPill, roomMenu);
+      closeMenu(styleWrapper, stylePill, styleMenu);
+      openMenu(wrapper, pill, menu);
+    }
+  }
+
+  roomPill.addEventListener("click", () => toggleMenu(roomWrapper, roomPill, roomMenu));
+  stylePill.addEventListener("click", () => toggleMenu(styleWrapper, stylePill, styleMenu));
+
+  document.addEventListener("click", (e) => {
+    const clickedRoom = roomWrapper.contains(e.target);
+    const clickedStyle = styleWrapper.contains(e.target);
+    if (!clickedRoom) closeMenu(roomWrapper, roomPill, roomMenu);
+    if (!clickedStyle) closeMenu(styleWrapper, stylePill, styleMenu);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeMenu(roomWrapper, roomPill, roomMenu);
+      closeMenu(styleWrapper, stylePill, styleMenu);
+    }
+  });
+
+  // ----- Filtering + section hiding -----
+  function cardMatches(card) {
+    const r = card.getAttribute("data-room");
+    const s = card.getAttribute("data-style");
+    const roomOk = (roomFilter === "all") || (r === roomFilter);
+    const styleOk = (styleFilter === "all") || (s === styleFilter);
+    return roomOk && styleOk;
+  }
+
+  function applyVisibility() {
+    // show/hide cards
+    allCards.forEach(card => {
+      card.style.display = cardMatches(card) ? "inline-block" : "none";
+    });
+
+    // hide empty sections
+    allSections.forEach(section => {
+      const visibleCards = section.querySelectorAll('.gallery-thumb:not([style*="display: none"])');
+      section.style.display = visibleCards.length ? "" : "none";
+    });
+  }
+
+  // ----- Sorting (within each section, only visible cards) -----
+  function sortVisibleWithinSections() {
+    if (sortMode === "default") return;
+
+    allSections.forEach(section => {
+      const grid = section.querySelector(".style-group__grid");
+      if (!grid) return;
+
+      const cards = Array.from(grid.querySelectorAll(".gallery-thumb"))
+        .filter(c => c.style.display !== "none");
+
+      const keyFn = (c) => {
+        if (sortMode === "room") return (c.getAttribute("data-room") || "").toLowerCase();
+        if (sortMode === "title") return (c.getAttribute("data-title") || "").toLowerCase();
+        return "";
+      };
+
+      cards.sort((a, b) => keyFn(a).localeCompare(keyFn(b)));
+
+      // append back in sorted order (only visible ones)
+      cards.forEach(c => grid.appendChild(c));
+    });
+  }
+
+  function applyAll() {
+    applyVisibility();
+    sortVisibleWithinSections();
+
+    // keep URL in sync
+    const url = new URL(window.location.href);
+    if (roomFilter === "all") url.searchParams.delete("room"); else url.searchParams.set("room", roomFilter);
+    if (styleFilter === "all") url.searchParams.delete("style"); else url.searchParams.set("style", styleFilter);
+    window.history.replaceState({}, "", url);
+  }
+
+  // ----- Menu item clicks -----
+  roomMenu.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-room-value]");
+    if (!btn) return;
+    roomFilter = btn.getAttribute("data-room-value");
+    roomLabel.textContent = btn.textContent;
+    closeMenu(roomWrapper, roomPill, roomMenu);
+    applyAll();
+
+    // scroll to gallery
+    styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+  });
+
+  styleMenu.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-style-value]");
+    if (!btn) return;
+    styleFilter = btn.getAttribute("data-style-value");
+    styleLabel.textContent = btn.textContent;
+    closeMenu(styleWrapper, stylePill, styleMenu);
+    applyAll();
+
+    // scroll to gallery
+    styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+  });
+
+  sortSelect.addEventListener("change", () => {
+    sortMode = sortSelect.value || "default";
+    applyAll();
+  });
+
+  // ----- Room strip click: filter without reloading (but still works if JS off) -----
+  document.querySelectorAll("[data-room-link]").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      roomFilter = link.getAttribute("data-room-link") || "all";
+
+      // update pill label to match menu item text
+      const btn = roomMenu.querySelector(`[data-room-value="${roomFilter}"]`);
+      roomLabel.textContent = btn ? btn.textContent : "All rooms";
+
+      applyAll();
+      styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // ----- Apply from URL on first load -----
+  const params = new URLSearchParams(window.location.search);
+  const roomFromUrl = params.get("room");
+  const styleFromUrl = params.get("style");
+
+  if (roomFromUrl && roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`)) {
+    roomFilter = roomFromUrl;
+    roomLabel.textContent = roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`).textContent;
+  }
+
+  if (styleFromUrl && styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`)) {
+    styleFilter = styleFromUrl;
+    styleLabel.textContent = styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`).textContent;
+  }
+
+  // ----- Pager rules: hide prev on first page, hide next on last -----
+  const page = parseInt(document.body.getAttribute("data-page") || "1", 10);
+  const total = parseInt(document.body.getAttribute("data-total-pages") || "1", 10);
+  const prev = document.querySelector("[data-pager-prev]");
+  const next = document.querySelector("[data-pager-next]");
+
+  if (prev) {
+    if (page <= 1) {
+      prev.classList.add("is-disabled");
+      prev.setAttribute("aria-disabled", "true");
+      prev.setAttribute("tabindex", "-1");
+      prev.href = "#";
+    }
+  }
+  if (next) {
+    if (page >= total) {
+      next.classList.add("is-disabled");
+      next.setAttribute("aria-disabled", "true");
+      next.setAttribute("tabindex", "-1");
+      next.href = "#";
+    }
+  }
+
+  // initial apply
+  applyAll();
+})();
+</script>
+
+</body>
+</html>

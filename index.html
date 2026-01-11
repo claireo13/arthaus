@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtHaus Interiors</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ideas.css" />
+</head>
+
+<body class="page-home">
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">ArtHaus</div>
+    <nav>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="domestic.html">Residential</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="#contact">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero--banner" id="welcome" aria-label="Welcome">
+    <div class="hero__banner-content">
+      <h1 class="hero__title">
+        Beautiful spaces, designed with <span class="hero__highlight">purpose</span>.
+      </h1>
+      <p class="hero__text">
+        Explore real-world inspiration for homes and commercial spaces. Then work with ArtHaus to shape
+        a design that fits your lifestyle, brand, and budget.
+      </p>
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <div class="band band--white">
+    <section class="home-section home-quickstart" aria-label="Quick start">
+
+      <h2 class="section-heading">Start with a space</h2>
+      <p class="section-subtitle">
+        Pick a direction, then filter by room and style to find ideas that feel cohesive.
+      </p>
+
+      <hr class="divider">
+
+      <div class="room-strip">
+        <a class="room-card-link" href="domestic.html">
+          <div class="room-card">
+            <div class="room-card__image">
+              <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=70"
+                   alt="Residential inspiration" loading="lazy" decoding="async">
+            </div>
+            <div class="room-card__label">Residential ideas</div>
+          </div>
+        </a>
+
+        <a class="room-card-link" href="commercial.html">
+          <div class="room-card">
+            <div class="room-card__image">
+              <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=70"
+                   alt="Commercial inspiration" loading="lazy" decoding="async">
+            </div>
+            <div class="room-card__label">Commercial ideas</div>
+          </div>
+        </a>
+
+        <a class="room-card-link" href="domestic.html?style=minimalist">
+          <div class="room-card">
+            <div class="room-card__image">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=70"
+                   alt="Minimalist interiors" loading="lazy" decoding="async">
+            </div>
+            <div class="room-card__label">Minimalist</div>
+          </div>
+        </a>
+
+        <a class="room-card-link" href="domestic.html?style=scandinavian">
+          <div class="room-card">
+            <div class="room-card__image">
+              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=70"
+                   alt="Scandinavian interiors" loading="lazy" decoding="async">
+            </div>
+            <div class="room-card__label">Scandinavian</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT (NEW: editorial layout, not buttony) -->
+  <section class="home-section home-about" id="about" aria-label="About" style="margin-top:0;">
+    <h2 class="section-heading">About</h2>
+    <p class="section-subtitle">
+      We help you turn inspiration into a coherent plan — layout, lighting, colour palettes, materials, and finishing touches.
+      Whether it’s a calm home refresh or a commercial space that supports your brand, we design for how you actually live and work.
+    </p>
+
+    <div class="about-layout">
+      <div class="about-media" aria-hidden="true"></div>
+
+      <div class="about-features" role="list">
+        <div class="about-feature" role="listitem">
+          <div class="about-feature__tag">Layouts</div>
+          <h3 class="about-feature__title">Practical flow</h3>
+          <p class="about-feature__text">Plans that support movement, storage, and everyday use — not just “looks”.</p>
+        </div>
+
+
+        <div class="about-feature" role="listitem">
+          <div class="about-feature__tag">Budget</div>
+          <h3 class="about-feature__title">Smart priorities</h3>
+          <p class="about-feature__text">Where to invest, where to simplify — and how to keep the result elevated.</p>
+        </div>
+
+        <div class="about-feature" role="listitem">
+          <div class="about-feature__tag">Support</div>
+          <h3 class="about-feature__title">Design guidance</h3>
+          <p class="about-feature__text">From idea boards to final styling — we help you make confident decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN (NEW: calmer, less “buttony”) -->
+  <section class="home-section home-join" id="join" aria-label="Join or login" style="margin-top:0;">
+    <h2 class="section-heading">Join / Login</h2>
+    <p class="section-subtitle">
+      Create an account to save favourite ideas, collect rooms and styles into moodboards,
+      and request a design consultation.
+    </p>
+
+    <div class="join-layout">
+      <div class="join-info">
+        <div class="join-info__kicker">What you get</div>
+        <ul class="join-info__list">
+          <li>Save inspiration by room + style</li>
+          <li>Build a shortlist before you contact us</li>
+          <li>Faster quoting and clearer direction</li>
+        </ul>
+      </div>
+
+      <div class="join-actions">
+        <a class="link-card" href="register.html">
+          <div class="link-card__title">Create an account</div>
+          <div class="link-card__meta">Save favourites and build a moodboard.</div>
+        </a>
+
+        <a class="link-card" href="login.html">
+          <div class="link-card__title">Login</div>
+          <div class="link-card__meta">Continue your saved inspiration.</div>
+        </a>
+
+        <a class="link-card" href="domestic.html">
+          <div class="link-card__title">Browse inspiration</div>
+          <div class="link-card__meta">Start with a room or style.</div>
+        </a>
+
+        <a class="link-card" href="#contact">
+          <div class="link-card__title">Request a consultation</div>
+          <div class="link-card__meta">Tell us your goals and timeline.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (NEW: real form + details, styled like content) -->
+  <section class="home-section home-contact home-section--tint" id="contact" aria-label="Contact" style="margin-top:0;">
+    <h2 class="section-heading">Contact</h2>
+    <p class="section-subtitle">
+      Tell us what you're designing — we'll reply with next steps, a rough timeline, and what we'd need to quote accurately.
+    </p>
+
+    <div class="contact-layout">
+      <div class="contact-details">
+        <div class="contact-details__title">Get in touch</div>
+
+        <div class="contact-details__grid">
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">hello@arthausinteriors.co.uk</div>
+          </div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">+44 (0)20 0000 0000</div>
+          </div>
+          <div>
+            <div class="contact-label">Hours</div>
+            <div class="contact-value">Mon–Fri, 9:00–17:30</div>
+          </div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">London • Remote consults available</div>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          The more detail you share (room type, style direction, timeline), the quicker we can respond with next steps.
+        </div>
+      </div>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="form-row">
+          <label class="field">
+            <span class="field__label">Name</span>
+            <input class="field__input" type="text" name="name" autocomplete="name" required>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Email</span>
+            <input class="field__input" type="email" name="email" autocomplete="email" required>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">
+            <span class="field__label">Phone (optional)</span>
+            <input class="field__input" type="tel" name="phone" autocomplete="tel">
+          </label>
+
+          <label class="field">
+            <span class="field__label">Project type</span>
+            <select class="field__input" name="project_type" required>
+              <option value="">Select…</option>
+              <option>Residential</option>
+              <option>Commercial</option>
+              <option>Unsure</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label class="field">
+            <span class="field__label">Room / Space</span>
+            <input class="field__input" type="text" name="space" placeholder="e.g. Kitchen, Office, Hotel lobby" required>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Timeline</span>
+            <select class="field__input" name="timeline" required>
+              <option value="">Select…</option>
+              <option>ASAP (0–4 weeks)</option>
+              <option>1–3 months</option>
+              <option>3–6 months</option>
+              <option>6+ months</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="field__label">Message</span>
+          <textarea class="field__input field__textarea" name="message" rows="5"
+                    placeholder="Tell us your goals, style direction, and any constraints (budget, dimensions, must-keep items)…"
+                    required></textarea>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" required>
+          <span>I agree to be contacted about my enquiry.</span>
+        </label>
+
+        <button class="submit" type="submit">Send enquiry</button>
+        <div class="form-hint">We’ll reply within 1–2 business days.</div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> ArtHaus Interiors • Residential & Commercial Design
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

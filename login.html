@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - ArtHaus</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ideas.css" />
+</head>
+
+<body class="page-auth page-login">
+<div class="page">
+
+  <header class="site-header">
+    <div class="logo">ArtHaus</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="domestic.html">Residential</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="contact.html">Contact</a>
+      <a href="register.html">Create account</a>
+    </nav>
+  </header>
+
+  <section class="hero hero--banner" aria-label="Login">
+    <div class="hero__banner-content">
+      <h1 class="hero__title">Welcome back</h1>
+      <p class="hero__text">
+        Log in to access your saved inspiration and moodboards.
+      </p>
+    </div>
+  </section>
+
+  <section aria-label="Login form">
+    <h2 class="section-heading">Login</h2>
+    <p class="section-subtitle">Continue where you left off.</p>
+
+    <div class="hero__card">
+      <div class="hero__card-title">Your account</div>
+
+      <form action="#" method="post" class="auth-form">
+        <div class="auth-grid auth-grid--single">
+          <label class="auth-field">
+            <span class="auth-label">Email</span>
+            <input class="auth-input" type="email" name="email" autocomplete="email" required>
+          </label>
+
+          <label class="auth-field">
+            <span class="auth-label">Password</span>
+            <input class="auth-input" type="password" name="password" autocomplete="current-password" required>
+          </label>
+        </div>
+
+        <div class="auth-row">
+          <label class="auth-check" style="margin:0;">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+
+          <a class="auth-link" href="#">Forgot password?</a>
+        </div>
+
+        <button class="auth-submit" type="submit">Login</button>
+
+        <div class="auth-alt">
+          No account yet? <a href="register.html">Create one</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> ArtHaus Interiors
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
