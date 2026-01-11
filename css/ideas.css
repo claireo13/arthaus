@@ -1105,4 +1105,23 @@ select:focus-visible {
   .auth-grid{ grid-template-columns: 1fr; }
 }
 
+/* Keep form fields inside their parent */
+.contact-form,
+.contact-form * {
+  max-width: 100%;
+}
+
+.field__input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field__textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-row > * {
+  min-width: 0;
+}
+
 
