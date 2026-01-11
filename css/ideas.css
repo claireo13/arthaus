@@ -22,6 +22,13 @@
   --radius-hero: 24px;
 }
 
+/* Prevent inputs/panels overflowing their containers */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: var(--font-family-base);
@@ -1097,4 +1104,5 @@ select:focus-visible {
 @media (max-width: 720px){
   .auth-grid{ grid-template-columns: 1fr; }
 }
+
 
