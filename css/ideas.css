@@ -1146,3 +1146,22 @@ color: var(--color-text); background:#fff;
   }
 }
 
+@media (max-width: 760px){
+  .page-home .home-quickstart .room-strip{
+    display:flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: .6rem;
+    padding-bottom: .4rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .page-home .home-quickstart .room-strip > *{
+    flex: 0 0 auto;
+    width: 78%;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+}
+
