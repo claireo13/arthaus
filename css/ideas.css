@@ -1171,4 +1171,22 @@ color: var(--color-text); background:#fff;
   }
 }
 
+/* ===== Header: clean desktop layout ===== */
+.site-header{
+  flex-wrap: nowrap;              /* IMPORTANT: stop wrapping on desktop */
+  position: relative;             /* needed for mobile overlay panel */
+}
+
+.nav-toggle{
+  display: none;                  /* default: hidden on desktop */
+  margin-left: auto;              /* sits to the right of logo */
+}
+
+/* If your HTML nav is just <nav> (no class), keep it on desktop */
+.site-header nav{
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
 
