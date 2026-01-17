@@ -1,16 +1,12 @@
 /* ideas.css – minimalist inspiration styles */
 :root {
   --color-bg: #ffffff;
-  --color-bg-alt: #fffbfb;
+  --color-bg-alt: #e4e4e4fd;
   --color-text: #111111;
   --color-accent: #111827;
   --color-accent-soft: rgba(15, 23, 42, 0.06);
   --color-border: #f5f6f7;
   --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
-
-  --card: var(--color-bg-alt);
-  --text: var(--color-text);
-  --accent: var(--color-accent);
 
   --font-family-base: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-weight-normal: 400;
@@ -20,7 +16,31 @@
   --radius-button: 0;
   --radius-image: 0;
   --radius-hero: 24px;
+
+  /* Theme tokens (edit these to experiment) */
+  --page-bg: var(--color-bg);
+  --surface: var(--color-bg-alt);
+  --card: var(--surface);
+
+  --line: var(--color-border);
+  --line-strong: rgba(0,0,0,0.12);
+  --header-divider: rgba(0,0,0,0.12);
+
+  --bg-glow: #fffbfb;
+
+  --hero-text: #ffffff;
+  --hero-highlight: #e5f0ff;
+
+  --overlay-1: rgba(0,0,0,0.65);
+  --overlay-2: rgba(0,0,0,0.25);
+
+  /* Home section band colours */
+  --home-about-bg: #f8f7f7;
+  --home-join-bg: var(--color-bg);
+  --home-contact-bg: #f8f7f7;
 }
+
+
 
 /* Prevent inputs/panels overflowing their containers */
 *,
@@ -33,7 +53,7 @@ body {
   margin: 0;
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-normal);
-  background: radial-gradient(circle at top, #fffbfb 0, var(--color-bg) 48%);
+  background: radial-gradient(circle at top, var(--bg-glow) 0, var(--page-bg) 48%);
   color: var(--color-text);
 }
 
@@ -50,14 +70,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-border);
+
   flex-wrap: wrap;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text);
+  color: var(--color-text);
 }
 
 nav {
@@ -68,14 +89,14 @@ nav {
 nav a {
   margin: 0.5rem 1rem;
   text-decoration: none;
-  color: var(--text);
+  color: var(--color-text);
   font-weight: 500;
   transition: color 0.3s, transform 0.2s;
 }
 
 nav a:hover,
 nav a:focus {
-  color: var(--accent);
+  color: var(--color-accent);
   transform: translateY(-2px);
   outline: none;
 }
@@ -87,11 +108,7 @@ select:focus-visible {
   outline-offset: 3px;
 }
 
-/* HERO (used on domestic/commercial pages)spac above below hero picture
-.hero {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}*/
+
 
 .hero--banner {
   position: relative;
@@ -109,26 +126,16 @@ select:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
+  background: linear-gradient(135deg, var(--overlay-1), var(--overlay-2));
 }
 
 .hero__banner-content {
   position: relative;
   padding: 2rem 2.4rem;
-  color: #fff;
+  color: var(--color-bg);
   max-width: 520px;
 }
-/*
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.2rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(0, 0, 0, 0.3);
-}*/
+
 
 .hero__title {
   font-size: clamp(1.9rem, 4vw, 2.5rem);
@@ -137,9 +144,10 @@ select:focus-visible {
   font-weight: var(--font-weight-medium);
 }
 
-.hero__highlight {
-  color: #e5f0ff;
-}
+
+  .hero__highlight { 
+    color: var(--hero-highlight); }
+
 
 .hero__text {
   font-size: 0.95rem;
@@ -494,7 +502,7 @@ select:focus-visible {
   padding: 0.6rem 0.95rem;
   border: 1px solid rgba(255,255,255,0.35);
   background: rgba(0,0,0,0.35);
-  color: #fff;
+  color: var(--hero-text);
   text-decoration: none;
   font-size: 0.88rem;
   transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
@@ -517,109 +525,8 @@ select:focus-visible {
   text-underline-offset: 4px;
 }
 
-/*
-.feature__media--layout {
-  background-image: url("https://images.unsplash.com/photo-1554995207-c18c203602cb");
-}
-.feature__media--materials {
-  background-image: url("https://images.unsplash.com/photo-1523413651479-597eb2da0ad6");
-}
-.feature__media--budget {
-  background-image: url("https://images.unsplash.com/photo-1526304640581-d334cdbbf45e");
-}
-.feature__media--support {
-  background-image: url("https://images.unsplash.com/photo-1455885666463-1e2fba0b5a6b");
-}
-*/
 
 
-
-/*
- -----------------------------------------
-   ABOUT section: "winding path" layout
-   Only applies where .room-strip--path is used
------------------------------------------- */
-
-.room-strip--path {
-  /* switch from grid row to a vertical stack */
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  max-width: 680px;          /* keeps it elegant, not stretched */
-}
-
-/* keep cards readable and slightly larger */
-.room-strip--path .room-card{
-  width: min(400px, 100%);
-  padding: 1.1rem 1.2rem;
-  position: relative;
-  padding-left: 1.25rem;
-
-  /* make it feel informational, not clickable */
-  cursor: default;
-  transition: none;
-
-  /* softer feature-card styling */
-  border: 1px solid rgba(0,0,0,0.06);
-  
-
-  /* slightly calmer background so it reads as content */
-  background: var(--color-bg-alt);
-}
- 
-.room-strip--path .room-card:hover{
-  transform: none;
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
-  border-color: rgba(0,0,0,0.06);
-}
-
-.room-strip--path .room-card__label{
-  font-size: 1rem;
-  letter-spacing: 0.01em;
-}
-
-.room-strip--path .room-card__meta{
-  font-size: 0.88rem;
-  line-height: 1.45;
-  opacity: 0.8;
-}
-
-/* create a subtle zig-zag / winding path */
-.room-strip--path .room-card:nth-child(1) { margin-left: 0; }
-.room-strip--path .room-card:nth-child(2) { margin-left: 12%; }
-.room-strip--path .room-card:nth-child(3) { margin-left: 0%; }
-.room-strip--path .room-card:nth-child(4) { margin-left: 12%; }
-
-/* optional: a tiny "guide" feel using a faint left border */
-.room-strip--path {
-  position: relative;
-  padding-left: 0.75rem;
-  padding-top: 5rem;
-  border-left: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-/* tighten on small screens: remove offsets so it stays clean */
-@media (max-width: 640px) {
-  .room-strip--path {
-    max-width: 100%;
-    padding-left: 0;
-    border-left: none;
-  }
-  .room-strip--path .room-card {
-    width: 100%;
-    margin-left: 0 !important;
-  }
-}
-
-.room-strip--path .room-card::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10%;
-  bottom: 10%;
-  width: 3px;
-  background: rgba(17, 24, 39, 0.20);
-}
 
 
 /* -----------------------------------------
@@ -702,18 +609,9 @@ select:focus-visible {
 .page-commercial .section-heading { font-size: 1.15rem; text-align: left; }
 .page-commercial .section-subtitle { font-size: 0.86rem; text-align: left; }
 
-/* Section-level fine tuning (home only) */
 
 
-.page-home .home-about { 
-    background: #f8f7f7;
-}
-.page-home .home-join{ 
-    background: var(--color-bg);
- }
-.page-home .home-contact{ 
-    background: #f8f7f7;
- }
+
 
  /*section headings*/
  .page-home .home-quickstart .section-heading { 
@@ -747,9 +645,9 @@ select:focus-visible {
 }
 
 /* Section backgrounds (full-width) */
-.page-home .home-about::before{ background: #f8f7f7; }
-.page-home .home-join::before{ background: var(--color-bg); }
-.page-home .home-contact::before{ background: #f8f7f7; }
+.page-home .home-about::before{ background: var(--home-about-bg); }
+.page-home .home-join::before{ background: var(--home-join-bg); }
+.page-home .home-contact::before{ background: var(--home-contact-bg); }
 
 /* =========================================
    HOMEPAGE SECTION STYLING (non-buttony)
@@ -945,7 +843,7 @@ select:focus-visible {
   appearance: none;
   width: 100%;
   border: 1px solid rgba(0,0,0,0.10);
-  background: #fff;
+  color: var(--color-text); background:#fff;
   padding: 0.65rem 0.7rem;
   font: inherit;
 }
@@ -972,7 +870,7 @@ select:focus-visible {
 
 .page-home .submit{
   border: 1px solid rgba(0,0,0,0.14);
-  background: #fff;
+  color: var(--color-text); background:#fff;
   padding: 0.7rem 0.9rem;
   font: inherit;
   cursor: pointer;
@@ -1047,7 +945,7 @@ select:focus-visible {
 .auth-input{
   width: 100%;
   border: 1px solid rgba(0,0,0,0.10);
-  background: #fff;
+color: var(--color-text); background:#fff;
   padding: 0.65rem 0.7rem;
   font: inherit;
   border-radius: 0;
@@ -1084,7 +982,7 @@ select:focus-visible {
 
 .auth-submit{
   border: 1px solid rgba(0,0,0,0.14);
-  background: #fff;
+ color: var(--color-text); background:#fff;
   padding: 0.7rem 0.9rem;
   font: inherit;
   cursor: pointer;
@@ -1124,4 +1022,29 @@ select:focus-visible {
   min-width: 0;
 }
 
+/* =========================
+   PAGE-LEVEL COLOUR OVERRIDES
+   ========================= */
+
+.page-home{
+  --page-bg: #ffffff;
+  --surface: #e4e4e4fd;
+  --bg-glow: #fffbfb;
+
+  --home-about-bg: #f8f7f7;
+  --home-join-bg: #ffffff;
+  --home-contact-bg: #f8f7f7;
+}
+
+.page-domestic{
+  --page-bg: #ffffff;
+  --surface: #e4e4e4fd;
+  --bg-glow: #fffbfb;
+}
+
+.page-commercial{
+  --page-bg: #ffffff;
+  --surface: #e4e4e4fd;
+  --bg-glow: #fffbfb;
+}
 
