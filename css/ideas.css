@@ -1240,4 +1240,24 @@ color: var(--color-text); background:#fff;
   }
 }
 
+/* ===== Mobile swipe strip (Home + Domestic + Commercial) ===== */
+@media (max-width: 760px){
+  .room-strip--scroll{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: .6rem;
+    padding-bottom: .4rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .room-strip--scroll > *{
+    flex: 0 0 auto;
+    width: 78%;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+}
+
 
