@@ -1081,12 +1081,18 @@ color: var(--color-text); background:#fff;
 
 /* Mobile behaviour */
 @media (max-width: 760px){
-  .nav-toggle{ display:inline-flex; align-items:center; gap:.4rem; }
+  .nav-toggle{ 
+    display:inline-flex; align-items:center; gap:.4rem;
+     margin-left: auto;
+   }
 
   /* turn nav into a dropdown panel */
   .site-header{
-    position: relative;
-  }
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+}
 
   .site-nav{
     display:none;
@@ -1164,4 +1170,5 @@ color: var(--color-text); background:#fff;
     scroll-snap-align: start;
   }
 }
+
 
