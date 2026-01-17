@@ -1121,3 +1121,28 @@ color: var(--color-text); background:#fff;
   }
 }
 
+/* Mobile swipe row for Quick Start tiles */
+@media (max-width: 760px){
+  .page-home .home-quickstart .room-strip{
+    display:flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: .6rem;
+    padding-bottom: .4rem;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .page-home .home-quickstart .room-strip::-webkit-scrollbar{
+    height: 8px;
+  }
+
+  .page-home .home-quickstart .room-strip > *{
+    flex: 0 0 auto;
+    width: 78%;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+}
+
