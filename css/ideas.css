@@ -1083,7 +1083,7 @@ color: var(--color-text); background:#fff;
 @media (max-width: 760px){
   .nav-toggle{ 
     display:inline-flex; align-items:center; gap:.4rem;
-     margin-left: auto;
+   
    }
 
   /* turn nav into a dropdown panel */
@@ -1091,7 +1091,7 @@ color: var(--color-text); background:#fff;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 1rem;
+
 }
 
   .site-nav{
@@ -1259,5 +1259,6 @@ color: var(--color-text); background:#fff;
     scroll-snap-align: start;
   }
 }
+
 
 
