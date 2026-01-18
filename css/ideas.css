@@ -75,10 +75,6 @@ body {
   flex-wrap: wrap;
 }
 
-
-
-
-
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
@@ -112,7 +108,7 @@ select:focus-visible {
   outline-offset: 3px;
 }
 
-
+/*hero banner*/
 
 .hero--banner {
   position: relative;
@@ -140,14 +136,12 @@ select:focus-visible {
   max-width: 520px;
 }
 
-
 .hero__title {
   font-size: clamp(1.9rem, 4vw, 2.5rem);
   line-height: 1.1;
   margin: 0.9rem 0 0.4rem;
   font-weight: var(--font-weight-medium);
 }
-
 
   .hero__highlight { 
     color: var(--hero-highlight); }
@@ -340,7 +334,7 @@ select:focus-visible {
   background: var(--color-bg-alt);
 }
 
-/* Style groups (mosaic sections) */
+/* Style groups pics (mosaic sections) */
 .style-group {
   position: relative;
   padding: 1.25rem 0 1.75rem;
@@ -479,7 +473,7 @@ select:focus-visible {
   padding-top: 1.2rem;
 }
 
-/* Responsive tweaks */
+/* Responsive tweaks page hero filter*/
 @media (max-width: 640px) {
   .page { padding-inline: 1rem; }
   .hero__banner-content { padding: 1.6rem 1.4rem; }
@@ -488,8 +482,6 @@ select:focus-visible {
     align-items: flex-start;
   }
 }
-
-
 
 
 /* Buttons */
@@ -523,8 +515,6 @@ select:focus-visible {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-
-
 
 
 
@@ -607,9 +597,6 @@ select:focus-visible {
 /* Commercial page overrides */
 .page-commercial .section-heading { font-size: 1.15rem; text-align: left; }
 .page-commercial .section-subtitle { font-size: 0.86rem; text-align: left; }
-
-
-
 
 
  /*section headings*/
@@ -1046,6 +1033,8 @@ color: var(--color-text); background:#fff;
   --surface: #e4e4e4fd;
   --bg-glow: #fffbfb;
 }
+
+
 /* Screen-reader only */
 .sr-only{
   position:absolute;
@@ -1077,11 +1066,6 @@ color: var(--color-text); background:#fff;
   align-items:center;
 }
 
-/* Mobile behaviour */
-@media (max-width: 760px){
-  .site-nav-toggle{ 
-    display:inline-flex; align-items:center; gap:.4rem;
-   }
 
   /* turn nav into a dropdown panel */
   .site-header{
@@ -1118,11 +1102,42 @@ color: var(--color-text); background:#fff;
     outline-offset: 2px;
   }
 
-  /* open state */
+/* ===== Header: clean desktop layout ===== */
+.site-header{
+  flex-wrap: nowrap;              /* IMPORTANT: stop wrapping on desktop */
+  position: relative; 
+   display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;           /* needed for mobile overlay panel */
+}
+
+.site-nav-toggle{
+  display: none;                  /* default: hidden on desktop */
+  margin-left: auto;              /* sits to the right of logo */
+}
+
+/* If your HTML nav is just <nav> (no class), keep it on desktop */
+.site-header nav{
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Mobile behaviour 
+@media (max-width: 760px){
+  .site-nav-toggle{ 
+    display:inline-flex; align-items:center; gap:.4rem;
+   }
+    
+  .site-header .site-nav{
+    display: none !important;
+  }
+  
   .site-header .site-nav{
     display:flex;
   }
-}
+}*/
 
 /* Mobile swipe row for Quick Start tiles */
 @media (max-width: 760px){
@@ -1159,30 +1174,6 @@ color: var(--color-text); background:#fff;
   }
 }
 
-
-
-/* ===== Header: clean desktop layout ===== */
-.site-header{
-  flex-wrap: nowrap;              /* IMPORTANT: stop wrapping on desktop */
-  position: relative; 
-   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 1rem;           /* needed for mobile overlay panel */
-}
-
-.site-nav-toggle{
-  display: none;                  /* default: hidden on desktop */
-  margin-left: auto;              /* sits to the right of logo */
-}
-
-/* If your HTML nav is just <nav> (no class), keep it on desktop */
-.site-header nav{
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-
 /* ===== Mobile swipe strip (Home + Domestic + Commercial) ===== */
 @media (max-width: 760px){
   .room-strip--scroll{
@@ -1203,18 +1194,7 @@ color: var(--color-text); background:#fff;
   }
 }
 
-/* ===== Mobile menu: CLOSED by default ===== */
-@media (max-width: 760px){
-  /* force closed state */
-  .site-header .site-nav{
-    display: none !important;
-  }
 
-  /* open state */
-  .site-header.nav-open .site-nav{
-    display: flex !important;
-  }
-}
 /* Desktop nav */
 .site-nav{
   display: flex;
