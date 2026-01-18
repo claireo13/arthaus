@@ -286,22 +286,11 @@
 <script src="js/main.js?v=1" defer></script>
 
 
-  <script>
-  // TEMP: proves whether clicks work at all
-  document.addEventListener("DOMContentLoaded", () => {
-    const header = document.querySelector(".site-header");
-    const btn = document.querySelector(".nav-toggle");
-    if (!header || !btn) return;
-
-    btn.addEventListener("click", () => {
-      header.classList.toggle("nav-open");
-      btn.setAttribute("aria-expanded", header.classList.contains("nav-open") ? "true" : "false");
-    });
-  });
-</script>
+  
  
 </body>
 </html>
+
 
 
 
