@@ -1,20 +1,24 @@
-// js/main.js
-header.classList.remove("nav-open");
-btn.setAttribute("aria-expanded", "false");
-
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const btn = document.querySelector(".nav-toggle");
   const nav = document.querySelector("#site-nav");
 
-  if (!header || !btn || !nav) return;
+  if (!header || !btn || !nav) {
+    console.warn("Nav init failed:", { header: !!header, btn: !!btn, nav: !!nav });
+    return;
+  }
 
-  btn.addEventListener("click", () => {
+  // start closed
+  header.classList.remove("nav-open");
+  btn.setAttribute("aria-expanded", "false");
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
     const open = header.classList.toggle("nav-open");
     btn.setAttribute("aria-expanded", open ? "true" : "false");
   });
 
-  // close when clicking outside
+  // close when tapping outside
   document.addEventListener("click", (e) => {
     if (!header.classList.contains("nav-open")) return;
     if (header.contains(e.target)) return;
