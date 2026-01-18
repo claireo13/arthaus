@@ -1,4 +1,7 @@
 // js/main.js
+header.classList.remove("nav-open");
+btn.setAttribute("aria-expanded", "false");
+
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const btn = document.querySelector(".nav-toggle");
@@ -26,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.setAttribute("aria-expanded", "false");
   });
 });
+
 
 
 
