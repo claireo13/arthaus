@@ -882,5 +882,10 @@ textarea:focus-visible{
   --bg-glow:#fffbfb;
 }
 
+@media (max-width: 760px){
+  .site-header{ z-index: 2000; }
+  .nav-toggle{ position: relative; z-index: 2100; }
+  .site-nav{ z-index: 2050; }
+}
 
 
