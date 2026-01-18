@@ -881,3 +881,8 @@ textarea:focus-visible{
   --surface:#e4e4e4fd;
   --bg-glow:#fffbfb;
 }
+
+@media (max-width: 760px){
+  .site-header .site-nav{ opacity:0; pointer-events:none; transform:translateY(-10px); }
+  .site-header.nav-open .site-nav{ opacity:1; pointer-events:auto; transform:translateY(0); }
+}
