@@ -1119,7 +1119,7 @@ color: var(--color-text); background:#fff;
   }
 
   /* open state */
-  .site-header.nav-open .site-nav{
+  .site-header .site-nav{
     display:flex;
   }
 }
@@ -1214,4 +1214,5 @@ color: var(--color-text); background:#fff;
     display: flex !important;
   }
 }
+
 
