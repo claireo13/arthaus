@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const page = document.body.dataset.authPage; // "register" or "login"
+  console.log("auth.js page:", page);
+
   if (!page) return;
 
   const form = document.querySelector("form[data-auth-form]");
