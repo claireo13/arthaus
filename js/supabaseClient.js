@@ -8,5 +8,4 @@ const SUPABASE_ANON_KEY = "sb_publishable_906BMOr21u0eM5mwyutZ7A_GPZ_y6Ni";
 // This creates a reusable client.
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-window.supabaseClient = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
-console.log("Supabase client ready:", window.SUPABASE_URL);
+
