@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault(); // IMPORTANT: stops the POST -> fixes 405
+    console.log("auth submit fired");
     setStatus("");
 
     const fd = new FormData(form);
