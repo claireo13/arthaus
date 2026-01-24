@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/ideas.css" />
+  <link rel="stylesheet" href="css/ideas.css?v=1" />
 </head>
 
 <body class="page-moodboard">
@@ -17,17 +17,18 @@
 
   <header class="site-header">
     <div class="logo">ArtHaus</div>
-   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-    <span class="nav-toggle__icon" aria-hidden="true">☰</span>
-    <span class="sr-only">Menu</span>
-  </button>
 
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__icon" aria-hidden="true">☰</span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="domestic.html">Residential</a>
       <a href="commercial.html">Commercial</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html">Logout</a>
+      <a href="moodboard.html" aria-current="page">Moodboard</a>
+      <a href="#" id="logoutLink">Logout</a>
     </nav>
   </header>
 
@@ -35,101 +36,81 @@
     <div class="hero__banner-content">
       <h1 class="hero__title">Your Moodboard</h1>
       <p class="hero__text">
-        Collect inspiration, refine your direction, and share a clear brief with us.
+        Save inspiration from Residential and Commercial pages, then use your moodboard to brief your design.
       </p>
+      <a class="hero__link" href="domestic.html">Browse Residential →</a>
+      <a class="hero__link" href="commercial.html" style="margin-left:.5rem;">Browse Commercial →</a>
     </div>
   </section>
 
-  <section aria-label="Moodboard content">
-    <h2 class="section-heading">Saved inspiration</h2>
-    <p class="section-subtitle">
-      Keep this tight and intentional — aim for 8–16 images that clearly reflect your style.
+  <section aria-label="Moodboard controls" style="margin-top:1.5rem;">
+    <h2 class="section-heading" style="text-align:left;">Saved items</h2>
+    <p class="section-subtitle" style="text-align:left;">
+      Tip: use search + filters to narrow down by room and style.
     </p>
 
-    <div class="filter-bar">
+    <div class="filter-bar" style="margin-top:.75rem;">
       <div class="filter-pill-row">
         <div class="filter-pill-group">
-          <button class="filter-pill" type="button">All items</button>
-          <button class="filter-pill" type="button">Residential</button>
-          <button class="filter-pill" type="button">Commercial</button>
+          <label class="filter-pill-wrapper" style="min-width: 220px;">
+            <span class="sr-only">Search</span>
+            <input id="mbSearch" class="sort-select" type="text" placeholder="Search titles / style / room…" style="width:100%;">
+          </label>
+
+          <label class="filter-pill-wrapper">
+            <span class="sr-only">Filter page</span>
+            <select id="mbPage" class="sort-select">
+              <option value="all">All (Residential + Commercial)</option>
+              <option value="domestic">Residential</option>
+              <option value="commercial">Commercial</option>
+            </select>
+          </label>
+
+          <label class="filter-pill-wrapper">
+            <span class="sr-only">Filter room</span>
+            <select id="mbRoom" class="sort-select">
+              <option value="all">All rooms</option>
+            </select>
+          </label>
+
+          <label class="filter-pill-wrapper">
+            <span class="sr-only">Filter style</span>
+            <select id="mbStyle" class="sort-select">
+              <option value="all">All styles</option>
+            </select>
+          </label>
         </div>
 
-        <label>
-          <span style="font-size:0.78rem;opacity:.7;margin-right:.25rem;">Sort:</span>
-          <select class="sort-select">
-            <option>Recently added</option>
-            <option>Room A–Z</option>
-            <option>Style A–Z</option>
+        <label class="filter-pill-wrapper">
+          <span style="font-size:.78rem;opacity:.7;margin-right:.25rem;">Sort:</span>
+          <select id="mbSort" class="sort-select">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="room">Room A–Z</option>
+            <option value="style">Style A–Z</option>
           </select>
         </label>
       </div>
     </div>
 
-    <!-- Mosaic grid using your existing gallery-thumb look -->
-    <div class="style-group__grid">
-      <!-- Sample items (replace with saved items later) -->
-      <div class="gallery-thumb">
-        <div class="gallery-thumb__inner">
-          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=70"
-               alt="Saved inspiration example" loading="lazy" decoding="async">
-          <div class="gallery-thumb__body">
-            <div class="gallery-thumb__room">Kitchen</div>
-            <div class="gallery-thumb__title">Warm minimal cabinetry</div>
-            <div class="gallery-thumb__style">Style: Minimalist</div>
-          </div>
-        </div>
-      </div>
+    <div id="mbStatus" hidden style="margin:.8rem 0; padding:.6rem .7rem; border:1px solid rgba(0,0,0,.12); background:var(--color-bg-alt);"></div>
 
-      <div class="gallery-thumb">
-        <div class="gallery-thumb__inner">
-          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=70"
-               alt="Saved inspiration example" loading="lazy" decoding="async">
-          <div class="gallery-thumb__body">
-            <div class="gallery-thumb__room">Living room</div>
-            <div class="gallery-thumb__title">Soft Scandinavian light</div>
-            <div class="gallery-thumb__style">Style: Scandinavian</div>
-          </div>
-        </div>
-      </div>
+    <div id="mbSummary" style="margin:.4rem 0 1rem; font-size:.9rem; opacity:.8;"></div>
 
-      <div class="gallery-thumb">
-        <div class="gallery-thumb__inner">
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=70"
-               alt="Saved inspiration example" loading="lazy" decoding="async">
-          <div class="gallery-thumb__body">
-            <div class="gallery-thumb__room">Office</div>
-            <div class="gallery-thumb__title">Clean meeting corner</div>
-            <div class="gallery-thumb__style">Style: Modern</div>
-          </div>
-        </div>
-      </div>
+    <!-- Grid -->
+    <div id="mbGrid" style="
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .9rem;
+      align-items: start;
+    "></div>
 
-      <div class="gallery-thumb">
-        <div class="gallery-thumb__inner">
-          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=70"
-               alt="Saved inspiration example" loading="lazy" decoding="async">
-          <div class="gallery-thumb__body">
-            <div class="gallery-thumb__room">Bedroom</div>
-            <div class="gallery-thumb__title">Calm textures and neutrals</div>
-            <div class="gallery-thumb__style">Style: Contemporary</div>
-          </div>
-        </div>
+    <div id="mbEmpty" hidden style="margin:1.25rem 0; padding:1rem; border:1px solid rgba(0,0,0,.08); background:var(--color-bg-alt);">
+      <strong>No saved items yet.</strong>
+      <div style="margin-top:.35rem; opacity:.85;">
+        Go to <a href="domestic.html">Residential</a> or <a href="commercial.html">Commercial</a> and click “Save to moodboard”.
       </div>
     </div>
-
-    <div class="hero__card" style="margin-top: 1.5rem;">
-      <div class="hero__card-title">Share your brief</div>
-      <p style="margin:0;opacity:.8;max-width:70ch;">
-        When you’re ready, send your moodboard along with your room list and timeline.
-        We’ll reply with next steps and a consultation plan.
-      </p>
-      <div style="margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.6rem;">
-        <a class="hero__link" href="contact.html">Request consultation →</a>
-        <a class="hero__link" href="domestic.html">Add more residential ideas →</a>
-        <a class="hero__link" href="commercial.html">Add more commercial ideas →</a>
-      </div>
-    </div>
-
   </section>
 
   <footer class="footer">
@@ -138,16 +119,27 @@
 
 </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabaseClient.js?v=1"></script>
-<script src="js/auth.js?v=1"></script>
+
+<!-- Moodboard logic -->
+<script src="js/moodboard.js?v=1"></script>
+
+<!-- Site scripts (hamburger etc.) -->
 <script src="js/main.js?v=1" defer></script>
+
+<!-- Responsive grid tweak (inline, tiny) -->
+<style>
+  @media (max-width: 1000px){ #mbGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+  @media (max-width: 760px){ #mbGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+  @media (max-width: 520px){ #mbGrid{ grid-template-columns: 1fr !important; } }
+</style>
+
 </body>
 </html>
-
 
 
 
