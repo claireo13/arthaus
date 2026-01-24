@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusBox = document.getElementById("authStatus");
   const submitBtn = document.getElementById("authSubmit");
 
-  const moodboardUrl = new URL("moodboard.html", window.location.href).href;
+ const moodboardUrl = new URL("moodboard.html", window.location.href).href;
+const destination = safeReturnTo || moodboardUrl;
+
 
   function setStatus(msg, type = "info") {
     if (!statusBox) return;
@@ -83,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (error) throw error;
 
         if (data?.session) {
-          window.location.href = moodboardUrl;
+          window.location.href = destination;
           return;
         }
 
@@ -94,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (error) throw error;
 
         if (data?.session) {
-          window.location.href = moodboardUrl;
+          window.location.href = destination;
           return;
         }
 
