@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sortSel = document.getElementById("mbSort");
 
   const logoutLink = document.getElementById("logoutLink");
-
+  
   let session = null;
   let allItems = [];
   let filtered = [];
