@@ -13,6 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!page) return;
 
+
+  const params = new URLSearchParams(window.location.search);
+const returnTo = params.get("returnTo");
+const safeReturnTo = (() => {
+  if (!returnTo) return null;
+  try {
+    const url = new URL(returnTo, window.location.origin);
+    // Only allow returning within your own site
+    if (url.origin !== window.location.origin) return null;
+    return url.href;
+  } catch {
+    return null;
+  }
+})();
+
+
   const form = document.querySelector("form[data-auth-form]");
   if (!form) {
     console.error("No form[data-auth-form] found.");
