@@ -91,8 +91,19 @@
 <script src="js/supabaseClient.js?v=1"></script>
 <script src="js/auth.js?v=1"></script>
 <script src="js/main.js?v=1" defer></script>
+  <script>
+  (function(){
+    const p = new URLSearchParams(window.location.search);
+    const rt = p.get("returnTo");
+    if(!rt) return;
+    const a = document.getElementById("toRegister");
+    if(a) a.href = "register.html?returnTo=" + encodeURIComponent(rt);
+  })();
+</script>
+
 </body>
 </html>
+
 
 
 
