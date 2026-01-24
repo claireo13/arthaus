@@ -888,4 +888,50 @@ textarea:focus-visible{
   .site-nav{ z-index: 2050; }
 }
 
+/* ===== Moodboard Save Overlay ===== */
+.gallery-thumb__inner,
+.gallery-item,
+.gallery-card,
+.gallery-figure{
+  position: relative;
+}
+
+.save-btn{
+  position: absolute;
+  top: .55rem;
+  right: .55rem;
+  z-index: 5;
+
+  border: 1px solid rgba(0,0,0,.18);
+  background: rgba(255,255,255,.92);
+  color: var(--color-text);
+
+  padding: .35rem .55rem;
+  font: inherit;
+  font-size: .78rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+
+  box-shadow: 0 10px 18px rgba(0,0,0,.08);
+  transition: transform .16s ease, background .16s ease, border-color .16s ease;
+}
+
+.save-btn:hover{ transform: translateY(-1px); border-color: rgba(0,0,0,.28); }
+.save-btn:active{ transform: translateY(0); }
+
+.save-btn.is-saved{
+  background: rgba(16,185,129,.10);
+  border-color: rgba(16,185,129,.35);
+}
+
+.save-btn[disabled]{
+  opacity: .6;
+  cursor: not-allowed;
+}
+
 
