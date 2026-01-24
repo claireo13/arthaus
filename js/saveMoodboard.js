@@ -1,4 +1,8 @@
+
 // js/saveMoodboard.js
+// Injects "Save" overlays + saves to Supabase
+// Bonus: if user tried to save while logged out, auto-saves after login via sessionStorage.
+
 document.addEventListener("DOMContentLoaded", async () => {
   const client = window.supabaseClient;
   if (!client) {
@@ -6,15 +10,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // Find gallery items that have the required data
   const items = Array.from(document.querySelectorAll("[data-mb-image]"));
   if (!items.length) return;
 
-  // Get session (if not logged in we still show buttons, but clicking redirects to login)
   const { data: sessData } = await client.auth.getSession();
   const session = sessData?.session || null;
 
-  // If logged in, fetch existing saved image_urls for quick duplicate check
+  // existing saved set (used for quick UI state)
   let savedSet = new Set();
   if (session) {
     const { data, error } = await client
@@ -27,56 +29,79 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  function ensurePositioned(el){
+  function ensurePositioned(el) {
     const style = window.getComputedStyle(el);
     if (style.position === "static") el.style.position = "relative";
   }
 
-  function makeButton(el){
+  function cardPayload(el, sess) {
+    return {
+      user_id: sess.user.id,
+      page: el.dataset.mbPage || "domestic",
+      room: el.dataset.mbRoom || "unknown",
+      style: el.dataset.mbStyle || "unknown",
+      title: el.dataset.mbTitle || "",
+      image_url: el.dataset.mbImage
+    };
+  }
+
+  async function insertIfNotSaved(payload) {
+    if (savedSet.has(payload.image_url)) return { ok: true, already: true };
+
+    const { error } = await client.from("moodboard_items").insert(payload);
+    if (error) {
+      // If you later add a unique constraint, you might get "duplicate key" here.
+      throw error;
+    }
+
+    savedSet.add(payload.image_url);
+    return { ok: true, already: false };
+  }
+
+  function setButtonSaved(btn) {
+    btn.classList.add("is-saved");
+    btn.innerHTML = `<span aria-hidden="true">✓</span><span>Saved</span>`;
+  }
+
+  function makeButton(el) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "save-btn";
     btn.innerHTML = `<span aria-hidden="true">☆</span><span>Save</span>`;
     btn.setAttribute("aria-label", "Save to moodboard");
 
-    const image_url = el.dataset.mbImage;
-    if (savedSet.has(image_url)) {
-      btn.classList.add("is-saved");
-      btn.innerHTML = `<span aria-hidden="true">✓</span><span>Saved</span>`;
-    }
+    const imageUrl = el.dataset.mbImage;
+    if (savedSet.has(imageUrl)) setButtonSaved(btn);
 
     btn.addEventListener("click", async (e) => {
       e.preventDefault();
       e.stopPropagation();
 
-      // If not logged in, go to login and come back
+      // If not logged in, store pending save and redirect to login
       if (!session) {
+        const pending = {
+          mbPage: el.dataset.mbPage || "domestic",
+          mbRoom: el.dataset.mbRoom || "unknown",
+          mbStyle: el.dataset.mbStyle || "unknown",
+          mbTitle: el.dataset.mbTitle || "",
+          mbImage: el.dataset.mbImage || "",
+          returnTo: window.location.href
+        };
+        sessionStorage.setItem("pendingMoodboardSave", JSON.stringify(pending));
+
         const returnTo = encodeURIComponent(window.location.href);
         window.location.href = `login.html?returnTo=${returnTo}`;
         return;
       }
 
-      // Prevent double-saving in UI
       if (btn.classList.contains("is-saved")) return;
 
       btn.disabled = true;
 
       try {
-        const payload = {
-          user_id: session.user.id,
-          page: el.dataset.mbPage || "domestic",
-          room: el.dataset.mbRoom || "unknown",
-          style: el.dataset.mbStyle || "unknown",
-          title: el.dataset.mbTitle || "",
-          image_url
-        };
-
-        const { error } = await client.from("moodboard_items").insert(payload);
-        if (error) throw error;
-
-        savedSet.add(image_url);
-        btn.classList.add("is-saved");
-        btn.innerHTML = `<span aria-hidden="true">✓</span><span>Saved</span>`;
+        const payload = cardPayload(el, session);
+        await insertIfNotSaved(payload);
+        setButtonSaved(btn);
       } catch (err) {
         console.error(err);
         alert(err?.message || "Could not save item.");
@@ -92,16 +117,62 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Inject buttons
   items.forEach((el) => {
-    // choose a sensible overlay host: the image wrapper / card inner
     const host =
       el.querySelector(".gallery-thumb__inner") ||
       el.querySelector(".gallery-thumb__media") ||
       el;
 
     ensurePositioned(host);
-    // avoid duplicates if script runs twice
     if (host.querySelector(".save-btn")) return;
 
     host.appendChild(makeButton(el));
   });
+
+  // ---- Auto-save pending item after login ----
+  // If user came back from login and there is a pending save, save it now.
+  if (session) {
+    const pendingRaw = sessionStorage.getItem("pendingMoodboardSave");
+    if (pendingRaw) {
+      try {
+        const pending = JSON.parse(pendingRaw);
+
+        // Only auto-save if we're on the same page they came back to (safety)
+        // (If you want it to save no matter what page, remove this if-block.)
+        const samePage = pending?.returnTo && pending.returnTo.split("#")[0] === window.location.href.split("#")[0];
+
+        if (samePage && pending?.mbImage) {
+          // find matching element on page
+          const match = items.find((el) => el.dataset.mbImage === pending.mbImage);
+
+          // Build payload from pending (not from DOM) so it works even if card isn't found
+          const payload = {
+            user_id: session.user.id,
+            page: pending.mbPage || "domestic",
+            room: pending.mbRoom || "unknown",
+            style: pending.mbStyle || "unknown",
+            title: pending.mbTitle || "",
+            image_url: pending.mbImage
+          };
+
+          await insertIfNotSaved(payload);
+
+          // Update UI if card exists
+          if (match) {
+            const host =
+              match.querySelector(".gallery-thumb__inner") ||
+              match.querySelector(".gallery-thumb__media") ||
+              match;
+
+            const btn = host.querySelector(".save-btn");
+            if (btn) setButtonSaved(btn);
+          }
+        }
+      } catch (err) {
+        console.error("Auto-save pending failed:", err);
+      } finally {
+        // Always clear pending so it doesn't keep trying
+        sessionStorage.removeItem("pendingMoodboardSave");
+      }
+    }
+  }
 });
