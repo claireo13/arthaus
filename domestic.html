@@ -13,13 +13,14 @@
   <link rel="stylesheet" href="css/ideas.css" />
 </head>
 <body class="page-domestic" data-page="1" data-total-pages="2">
+ 
 
 <div class="page">
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="logo">ArtHaus</div>
-     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
     <span class="nav-toggle__icon" aria-hidden="true">☰</span>
     <span class="sr-only">Menu</span>
   </button>
@@ -49,9 +50,11 @@
 
   <!-- ROOM STRIP -->
   <section id="rooms">
-  <div class="room-strip room-strip--scroll">
+    <div class="room-strip room-strip--scroll">
+   
 
       <!-- These links ALSO filter (JS intercepts) and also work without JS via ?room= -->
+       <a href="domestic.html?room=living" class="room-card-link" data-room-link="living">
       <a href="domestic.html?room=living" class="room-card-link" data-room-link="living">
         <div class="room-card">
           <div class="room-card__image">
@@ -191,204 +194,6 @@
 
       <!-- Aim for 8–12+ images per style section so the mosaic feels intentional -->
 
-      <!-- MINIMALIST -->
-      <section class="style-group" data-style-group="minimalist">
-        <h3 class="style-group__title">Minimalist</h3>
-        <div class="style-group__grid">
-
-          <div class="gallery-thumb" data-room="living" data-style="minimalist" data-title="Soft minimalist lounge">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/living/living-minimalist-medium.jpg" alt="Soft minimalist living room with neutral sofa" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Living room</div>
-                <div class="gallery-thumb__title">Soft minimalist lounge</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Kitchen</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-         <div class="gallery-thumb" data-room="bathroom" data-style="rustic" data-mb-page="domestic"
-  data-mb-room="bathroom"
-  data-mb-style="rustic"
-  data-mb-title="Rustic bathroom"
-  data-mb-image="images/domestic/bathroom/bathroom-rustic-small.jpg">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/bathroom/bathroom-rustic-small.jpg" alt="Rustic bathroom" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">bathroom</div>
-                <div class="gallery-thumb__title">Rustic bathroom</div>
-                <div class="gallery-thumb__style">Style: Rustic</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="bedroom" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/bedroom/bedroom-minimalist-medium.jpg" alt="Minimal bedroom" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Hallway</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="bathroom" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/bathroom/bathroom-minimalist-small.jpg" alt="Minimal bathroom" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Hallway</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="living" data-style="minimalist" data-title="Soft minimalist lounge">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/living/living-minimalist-medium.jpg" alt="Soft minimalist living room with neutral sofa" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Living room</div>
-                <div class="gallery-thumb__title">Soft minimalist lounge</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Kitchen</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Kitchen</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="bedroom" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/bedroom/bedroom-minimalist-medium.jpg" alt="Minimal bedroom" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Hallway</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="bathroom" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/bathroom/bathroom-minimalist-small.jpg" alt="Minimal bathroom" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Hallway</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Kitchen</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="kitchen" data-style="minimalist" data-title="Clean entry moment">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/kitchen/kitchen-minimalist-medium.jpg" alt="Minimal kitchen with clean lines" loading="lazy" decoding="async"/>
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Kitchen</div>
-                <div class="gallery-thumb__title">Clean entry moment</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- MODERN -->
-      <section class="style-group" data-style-group="modern">
-        <h3 class="style-group__title">Modern</h3>
-        <div class="style-group__grid">
-
-          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Living room</div>
-                <div class="gallery-thumb__title">Modern living space</div>
-                <div class="gallery-thumb__style">Style: Modern</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Living room</div>
-                <div class="gallery-thumb__title">Modern living space</div>
-                <div class="gallery-thumb__style">Style: Modern</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Living room</div>
-                <div class="gallery-thumb__title">Modern living space</div>
-                <div class="gallery-thumb__style">Style: Modern</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="living" data-style="modern" data-title="Modern living space">
-            <div class="gallery-thumb__inner">
-              <img src="images/domestic/living/living-modern-medium.jpg" alt="Modern living room" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Living room</div>
-                <div class="gallery-thumb__title">Modern living space</div>
-                <div class="gallery-thumb__style">Style: Modern</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Add other style sections here -->
-
     </div>
   </section>
 
@@ -405,25 +210,13 @@
   </footer>
 
 </div>
-
-<!--  Working dropdown + filtering + sorting + URL params + room-strip click -->
 <script src="js/main.js" defer></script>
-
-<!--  Same working dropdown + filtering + sorting + URL params + room-strip click -->
-<script src="js/commercial.js?v=5" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabaseClient.js?v=5"></script>
-<script src="js/saveMoodboard.js?v=5"></script>
+<script src="js/domesticData.js"></script>
+<script src="js/renderDomesticGallery.js"></script>
+<!--  Working dropdown + filtering + sorting + URL params + room-strip click -->
+<script src="js/domestic.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js?v=1"></script>
+<script src="js/saveMoodboard.js?v=1"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
