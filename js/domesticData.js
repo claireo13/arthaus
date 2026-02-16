@@ -49,7 +49,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Minimalist dining",
-    image: "images/domestic/dining/dining-minimalist-medium.webp",//n
+    image: "images/domestic/dining/dining-minimalist-medium.webp",
     alt: "Minimal dining"
   },
 
@@ -510,6 +510,7 @@ window.domesticGallery = [
 
   // Add more items…
 ];
+
 
 
 
