@@ -176,7 +176,7 @@ window.domesticGallery = [
     room: "bedroom",
     roomLabel: "Bedroom",
     title: "Eclectic bedroom",
-    image: "images/domestic/bedroom/bedroom-eclectic-medium-3.webp", 
+    image: "images/domestic/bedroom/bedroom-eclectic-medium-2.webp", 
     alt: "Eclectic bedroom"
   },
    {
@@ -184,7 +184,7 @@ window.domesticGallery = [
     room: "bedroom",
     roomLabel: "Bedroom",
     title: "Eclectic bedroom",
-    image: "images/domestic/bedroom/bedroom-eclectic-medium-2.webp", 
+    image: "images/domestic/bedroom/bedroom-eclectic-medium-3.webp", 
     alt: "Eclectic bedroom"
   },
    {
@@ -510,6 +510,7 @@ window.domesticGallery = [
 
   // Add more items…
 ];
+
 
 
 
