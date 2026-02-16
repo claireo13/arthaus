@@ -5,11 +5,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   const data = window.domesticGallery;
   const container = document.getElementById("style-groups");
-  if (!container || !Array.isArray(data)) return;
+   if (!container || !Array.isArray(data)) return;
+
+  // ---- Pagination (NEW) ----
+  const params = new URLSearchParams(window.location.search);
+  const page = Math.max(1, parseInt(params.get("p") || "1", 10));
+  const perPage = 24;
+
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  const pageItems = data.slice(start, end);
 
   // Group by style
   const byStyle = new Map();
-  for (const item of data) {
+  for (const item of pageItems) {
     const style = (item.style || "other").toLowerCase();
     if (!byStyle.has(style)) byStyle.set(style, []);
     byStyle.get(style).push(item);
@@ -82,3 +91,4 @@ document.addEventListener("DOMContentLoaded", () => {
     return s ? s[0].toUpperCase() + s.slice(1) : s;
   }
 });
+
