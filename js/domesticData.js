@@ -217,7 +217,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Eclectic dining",
-    image: "images/domestic/dining/dining-eclectic-small.webp", // n
+    image: "images/domestic/dining/dining-eclectic-small.webp", 
     alt: "Eclectic dining"
   },
   {
@@ -225,7 +225,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Eclectic dining",
-    image: "images/domestic/dining/dining-eclectic-medium.jpg", //n
+    image: "images/domestic/dining/dining-eclectic-medium.tif", 
     alt: "Eclectic dining"
   },
    {
@@ -510,6 +510,7 @@ window.domesticGallery = [
 
   // Add more items…
 ];
+
 
 
 
