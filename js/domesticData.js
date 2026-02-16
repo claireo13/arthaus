@@ -485,7 +485,7 @@ window.domesticGallery = [
     room: "bedroom",
     roomLabel: "Bedroom",
     title: "Oriental bedroom",
-    image: "images/domestic/bedroom/bedroom-contemporary-medium.jpg", 
+    image: "images/domestic/bedroom/bedroom-oriental-medium.jpg", 
     alt: "Oriental bedroom"
   },
 
@@ -510,6 +510,7 @@ window.domesticGallery = [
 
   // Add more items…
 ];
+
 
 
 
