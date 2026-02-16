@@ -41,7 +41,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Minimalist dining",
-    image: "images/domestic/dining/dining-minimalist-medium-2.tif",
+    image: "images/domestic/dining/dining-minimalist-medium-2.webp",
     alt: "Minimal dining"
   },
   {
@@ -49,7 +49,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Minimalist dining",
-    image: "images/domestic/dining/dining-minimalist-medium.tif",//n
+    image: "images/domestic/dining/dining-minimalist-medium.webp",//n
     alt: "Minimal dining"
   },
 
@@ -76,7 +76,7 @@ window.domesticGallery = [
     room: "bathroom",
     roomLabel: "Bathroom",
     title: "Modern bathroom",
-    image: "images/domestic/bathroom/bathroom-modern-medium-2.tif", 
+    image: "images/domestic/bathroom/bathroom-modern-medium-2.webp", 
     alt: "Modern bathroom"
   },
    {
@@ -84,7 +84,7 @@ window.domesticGallery = [
     room: "bathroom",
     roomLabel: "Bathroom",
     title: "Modern bathroom",
-    image: "images/domestic/bathroom/bathroom-modern-medium.tif", 
+    image: "images/domestic/bathroom/bathroom-modern-medium.webp", 
     alt: "Modern bathroom"
   },
 
@@ -93,7 +93,7 @@ window.domesticGallery = [
     room: "bathroom",
     roomLabel: "Bathroom",
     title: "Modern bathroom",
-    image: "images/domestic/bathroom/bathroom-modern-small-2.tif", 
+    image: "images/domestic/bathroom/bathroom-modern-small-2.webp", 
     alt: "Modern bathroom"
   },
     {
@@ -109,7 +109,7 @@ window.domesticGallery = [
     room: "bedroom",
     roomLabel: "Bedroom",
     title: "Modern bedroom",
-    image: "images/domestic/bedroom/bedroom-modern-medium-2.tif", 
+    image: "images/domestic/bedroom/bedroom-modern-medium-2.webp", 
     alt: "Modern bedroom"
   },
     {
@@ -142,7 +142,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Modern dining",
-    image: "images/domestic/dining/dining-modern-small-2.tif", //n
+    image: "images/domestic/dining/dining-modern-small-2.webp", //n
     alt: "Modern dining"
   },
   {
@@ -150,7 +150,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Modern dining",
-    image: "images/domestic/dining/dining-modern-small.tif", //n
+    image: "images/domestic/dining/dining-modern-small.webp", //n
     alt: "Modern dining"
   },
 {
@@ -184,7 +184,7 @@ window.domesticGallery = [
     room: "bedroom",
     roomLabel: "Bedroom",
     title: "Eclectic bedroom",
-    image: "images/domestic/bedroom/bedroom-eclectic-medium-2.tif", 
+    image: "images/domestic/bedroom/bedroom-eclectic-medium-2.webp", 
     alt: "Eclectic bedroom"
   },
    {
@@ -200,7 +200,7 @@ window.domesticGallery = [
     room: "bathroom",
     roomLabel: "Bathroom",
     title: "Eclectic bathroom",
-    image: "images/domestic/bathroom/bathroom-eclectic-medium.webp", //change add m
+    image: "images/domestic/bathroom/bathroom-eclectic-medium.webp", 
     alt: "Eclectic bathroom"
   },
      {
@@ -225,7 +225,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Eclectic dining",
-    image: "images/domestic/dining/dining-eclectic-medium.tif", 
+    image: "images/domestic/dining/dining-eclectic-medium.webp", 
     alt: "Eclectic dining"
   },
    {
@@ -279,7 +279,7 @@ window.domesticGallery = [
     room: "bathroom",
     roomLabel: "Bathroom",
     title: "Industral bathroom",
-    image: "images/domestic/bathroom/bathroom-industrial-medium.tif", 
+    image: "images/domestic/bathroom/bathroom-industrial-medium.webp", 
     alt: "Industrial bathroom"
   },
 
@@ -298,7 +298,7 @@ window.domesticGallery = [
     room: "bathroom",
     roomLabel: "Bathroom",
     title: "Rustic bathroom",
-    image: "images/domestic/bathroom/bathroom-rustic-small-3.tif", 
+    image: "images/domestic/bathroom/bathroom-rustic-small-3.webp", 
     alt: "Rustic bathroom"
   },
 
@@ -323,7 +323,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Rustic dining",
-    image: "images/domestic/dining/dining-rustic-small.webp", //n
+    image: "images/domestic/dining/dining-rustic-small.webp", 
     alt: "Rustic dining"
   },
    {
@@ -381,7 +381,7 @@ window.domesticGallery = [
     room: "living",
     roomLabel: "Living",
     title: "Scandinavian living",
-    image: "images/domestic/living/living-scandinavian-small.webp", //living
+    image: "images/domestic/living/living-scandinavian-small.webp", 
     alt: "Scandinavian living"
   },
   {
@@ -398,7 +398,7 @@ window.domesticGallery = [
     room: "hall",
     roomLabel: "Hall",
     title: "Scandinavian hall",
-    image: "images/domestic/hall/hall-scandinavian-small.tif", 
+    image: "images/domestic/hall/hall-scandinavian-small.webp", 
     alt: "Scandinavian hall"
   },
 
@@ -424,7 +424,7 @@ window.domesticGallery = [
     room: "bedroom",
     roomLabel: "Bedroom",
     title: "Traditional bedroom",
-    image: "images/domestic/bedroom/bedroom-traditional-medium.tif", 
+    image: "images/domestic/bedroom/bedroom-traditional-medium.webp", 
     alt: "Traditional bedroom"
   },
 {
@@ -440,7 +440,7 @@ window.domesticGallery = [
     room: "bedroom",
     roomLabel: "Bedroom",
     title: "Traditional bedroom",
-    image: "images/domestic/bedroom/bedroom-traditional-small.tif", 
+    image: "images/domestic/bedroom/bedroom-traditional-small.webp", 
     alt: "Traditional bedroom"
   },
 {
@@ -448,7 +448,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Traditional dining",
-    image: "images/domestic/dining/dining-traditional-small.webp", //n
+    image: "images/domestic/dining/dining-traditional-small.webp", 
     alt: "Traditional dining"
   },
 
@@ -475,7 +475,7 @@ window.domesticGallery = [
     room: "living",
     roomLabel: "Living",
     title: "Contemporary living",
-    image: "images/domestic/living/living-contemporary-large.webp", //living
+    image: "images/domestic/living/living-contemporary-large.webp", 
     alt: "Contemporary living"
   },
 
@@ -510,6 +510,7 @@ window.domesticGallery = [
 
   // Add more items…
 ];
+
 
 
 
