@@ -39,9 +39,9 @@ window.domesticGallery = [
  {
     style: "minimalist",
     room: "dining",
-    roomLabel: "Dining",
+    roomLabel: "dining",
     title: "Minimalist dining",
-    image: "images/domestic/dining/dining-minimalist-medium-2.tif",//n
+    image: "images/domestic/dining/dining-minimalist-medium-2.tif",
     alt: "Minimal dining"
   },
   {
@@ -510,3 +510,4 @@ window.domesticGallery = [
 
   // Add more items…
 ];
+
