@@ -225,7 +225,7 @@ window.domesticGallery = [
     room: "dining",
     roomLabel: "Dining",
     title: "Eclectic dining",
-    image: "images/domestic/dining/dining-eclectic-medium.tif", //n
+    image: "images/domestic/dining/dining-eclectic-medium.jpg", //n
     alt: "Eclectic dining"
   },
    {
@@ -510,5 +510,6 @@ window.domesticGallery = [
 
   // Add more items…
 ];
+
 
 
