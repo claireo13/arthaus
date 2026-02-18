@@ -182,7 +182,6 @@ textarea:focus-visible{
   position:relative;
   overflow:hidden;
   min-height:360px;
-  border-radius:var(--radius-hero);
   background-image:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c");
   background-size:cover;
   background-position:center;
@@ -931,6 +930,7 @@ textarea:focus-visible{
   height: 2px;
   background: currentColor;
 }
+
 
 
 
