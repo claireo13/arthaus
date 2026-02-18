@@ -1,13 +1,14 @@
 // js/renderDomesticGallery.js
 // Renders the style-group sections + gallery thumbs from window.domesticGallery.
 // Keeps the same classes/attributes your current filters and moodboard code expect.
+// Pagination: domestic.html?p=1, domestic.html?p=2 ... with 24 per page.
 
 document.addEventListener("DOMContentLoaded", () => {
   const data = window.domesticGallery;
   const container = document.getElementById("style-groups");
-   if (!container || !Array.isArray(data)) return;
+  if (!container || !Array.isArray(data)) return;
 
-  // ---- Pagination (NEW) ----
+  // ---- Pagination (query param p) ----
   const params = new URLSearchParams(window.location.search);
   const page = Math.max(1, parseInt(params.get("p") || "1", 10));
   const perPage = 24;
@@ -15,8 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const start = (page - 1) * perPage;
   const end = start + perPage;
   const pageItems = data.slice(start, end);
+  // ---- End Pagination ----
 
-  // Group by style
+  // Group by style (only items on this page)
   const byStyle = new Map();
   for (const item of pageItems) {
     const style = (item.style || "other").toLowerCase();
@@ -57,17 +59,22 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.room = item.room;
       card.dataset.style = item.style;
 
+      // Optional: enable title sorting in domestic.js if you choose "title"
+      card.dataset.title = item.title || "";
+
       // Moodboard attributes (saveMoodboard.js uses these)
       card.dataset.mbPage = "domestic";
       card.dataset.mbRoom = item.room;
       card.dataset.mbStyle = item.style;
-      card.dataset.mbTitle = item.title;
+      card.dataset.mbTitle = item.title || "";
       card.dataset.mbImage = item.image;
+
+      const safeAlt = (item.alt || item.title || "").replaceAll('"', "&quot;");
 
       card.innerHTML = `
         <div class="gallery-thumb__inner">
           <img src="${item.image}"
-               alt="${(item.alt || item.title || "").replaceAll('"', '&quot;')}"
+               alt="${safeAlt}"
                loading="lazy"
                decoding="async" />
           <div class="gallery-thumb__body">
@@ -91,4 +98,3 @@ document.addEventListener("DOMContentLoaded", () => {
     return s ? s[0].toUpperCase() + s.slice(1) : s;
   }
 });
-
