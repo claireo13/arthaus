@@ -198,14 +198,16 @@
   </section>
 
   <!-- PAGER (Prev hidden on first page, Next hidden on last page via JS) -->
-  <nav class="pager" aria-label="Gallery pages">
+ <!-- PAGER (numbers injected via JS) -->
+<nav class="pager" aria-label="Gallery pages" data-pager>
   <a class="pager__prev" href="domestic.html?p=1" data-pager-prev>← Previous</a>
 
-  <a class="pager__link pager__link--current" href="domestic.html?p=1">1</a>
-  <a class="pager__link" href="domestic.html?p=2">2</a>
+  <!-- JS will inject page number links here -->
+  <span class="pager__nums" data-pager-nums></span>
 
   <a class="pager__next" href="domestic.html?p=2" data-pager-next>Next →</a>
 </nav>
+
 
   <footer class="footer">
     These examples are a starting point. We’ll adapt proportions, materials, and layouts to your actual space and lifestyle.
@@ -222,6 +224,7 @@
 <script src="js/saveMoodboard.js?v=10"></script>
 </body>
 </html>
+
 
 
 
