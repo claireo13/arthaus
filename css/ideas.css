@@ -931,6 +931,8 @@ textarea:focus-visible{
   background: currentColor;
 }
 
+.pager__nums { display: inline-flex; gap: .6rem; align-items: center; }
+.pager__dots { opacity: .6; }
 
 
 
