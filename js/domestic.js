@@ -1,3 +1,6 @@
+// js/domestic.js
+// Filters + sorting + pager behavior for the Domestic ideas page.
+
 (function () {
   const styleGroupsWrap = document.getElementById("style-groups");
   if (!styleGroupsWrap) return;
@@ -16,9 +19,9 @@
   let styleFilter = "all";
   let sortMode = "default";
 
- const getAllCards = () => Array.from(document.querySelectorAll(".gallery-thumb"));
-const getAllSections = () => Array.from(document.querySelectorAll(".style-group"));
-
+  // IMPORTANT: gallery is rendered dynamically, so always query fresh
+  const getAllCards = () => Array.from(document.querySelectorAll(".gallery-thumb"));
+  const getAllSections = () => Array.from(document.querySelectorAll(".style-group"));
 
   // ----- Dropdown behaviour (overlays, no layout shift) -----
   function openMenu(wrapper, pill, menu) {
@@ -37,27 +40,24 @@ const getAllSections = () => Array.from(document.querySelectorAll(".style-group"
     const isOpen = menu.classList.contains("filter-menu--open");
     if (isOpen) closeMenu(wrapper, pill, menu);
     else {
-      // close other menu
       closeMenu(roomWrapper, roomPill, roomMenu);
       closeMenu(styleWrapper, stylePill, styleMenu);
       openMenu(wrapper, pill, menu);
     }
   }
 
-  roomPill.addEventListener("click", () => toggleMenu(roomWrapper, roomPill, roomMenu));
-  stylePill.addEventListener("click", () => toggleMenu(styleWrapper, stylePill, styleMenu));
+  if (roomPill) roomPill.addEventListener("click", () => toggleMenu(roomWrapper, roomPill, roomMenu));
+  if (stylePill) stylePill.addEventListener("click", () => toggleMenu(styleWrapper, stylePill, styleMenu));
 
   document.addEventListener("click", (e) => {
-    const clickedRoom = roomWrapper.contains(e.target);
-    const clickedStyle = styleWrapper.contains(e.target);
-    if (!clickedRoom) closeMenu(roomWrapper, roomPill, roomMenu);
-    if (!clickedStyle) closeMenu(styleWrapper, stylePill, styleMenu);
+    if (roomWrapper && !roomWrapper.contains(e.target)) closeMenu(roomWrapper, roomPill, roomMenu);
+    if (styleWrapper && !styleWrapper.contains(e.target)) closeMenu(styleWrapper, stylePill, styleMenu);
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      closeMenu(roomWrapper, roomPill, roomMenu);
-      closeMenu(styleWrapper, stylePill, styleMenu);
+      if (roomWrapper) closeMenu(roomWrapper, roomPill, roomMenu);
+      if (styleWrapper) closeMenu(styleWrapper, stylePill, styleMenu);
     }
   });
 
@@ -71,15 +71,13 @@ const getAllSections = () => Array.from(document.querySelectorAll(".style-group"
   }
 
   function applyVisibility() {
-    // show/hide cards
-   getAllCards().forEach(card => {
+    getAllCards().forEach(card => {
       card.style.display = cardMatches(card) ? "inline-block" : "none";
     });
 
-    // hide empty sections
     getAllSections().forEach(section => {
-      const visibleCards = section.querySelectorAll('.gallery-thumb:not([style*="display: none"])');
-      section.style.display = visibleCards.length ? "" : "none";
+      const visible = section.querySelectorAll('.gallery-thumb:not([style*="display: none"])');
+      section.style.display = visible.length ? "" : "none";
     });
   }
 
@@ -101,8 +99,6 @@ const getAllSections = () => Array.from(document.querySelectorAll(".style-group"
       };
 
       cards.sort((a, b) => keyFn(a).localeCompare(keyFn(b)));
-
-      // append back in sorted order (only visible ones)
       cards.forEach(c => grid.appendChild(c));
     });
   }
@@ -111,7 +107,7 @@ const getAllSections = () => Array.from(document.querySelectorAll(".style-group"
     applyVisibility();
     sortVisibleWithinSections();
 
-    // keep URL in sync
+    // keep URL in sync (room/style only; we keep p as-is)
     const url = new URL(window.location.href);
     if (roomFilter === "all") url.searchParams.delete("room"); else url.searchParams.set("room", roomFilter);
     if (styleFilter === "all") url.searchParams.delete("style"); else url.searchParams.set("style", styleFilter);
@@ -119,44 +115,45 @@ const getAllSections = () => Array.from(document.querySelectorAll(".style-group"
   }
 
   // ----- Menu item clicks -----
-  roomMenu.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-room-value]");
-    if (!btn) return;
-    roomFilter = btn.getAttribute("data-room-value");
-    roomLabel.textContent = btn.textContent;
-    closeMenu(roomWrapper, roomPill, roomMenu);
-    applyAll();
+  if (roomMenu) {
+    roomMenu.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-room-value]");
+      if (!btn) return;
+      roomFilter = btn.getAttribute("data-room-value");
+      if (roomLabel) roomLabel.textContent = btn.textContent;
+      closeMenu(roomWrapper, roomPill, roomMenu);
+      applyAll();
+      styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 
-    // scroll to gallery
-    styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
-  });
+  if (styleMenu) {
+    styleMenu.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-style-value]");
+      if (!btn) return;
+      styleFilter = btn.getAttribute("data-style-value");
+      if (styleLabel) styleLabel.textContent = btn.textContent;
+      closeMenu(styleWrapper, stylePill, styleMenu);
+      applyAll();
+      styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 
-  styleMenu.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-style-value]");
-    if (!btn) return;
-    styleFilter = btn.getAttribute("data-style-value");
-    styleLabel.textContent = btn.textContent;
-    closeMenu(styleWrapper, stylePill, styleMenu);
-    applyAll();
+  if (sortSelect) {
+    sortSelect.addEventListener("change", () => {
+      sortMode = sortSelect.value || "default";
+      applyAll();
+    });
+  }
 
-    // scroll to gallery
-    styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
-  });
-
-  sortSelect.addEventListener("change", () => {
-    sortMode = sortSelect.value || "default";
-    applyAll();
-  });
-
-  // ----- Room strip click: filter without reloading (but still works if JS off) -----
+  // ----- Room strip click: filter without reloading (still works if JS off) -----
   document.querySelectorAll("[data-room-link]").forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       roomFilter = link.getAttribute("data-room-link") || "all";
 
-      // update pill label to match menu item text
-      const btn = roomMenu.querySelector(`[data-room-value="${roomFilter}"]`);
-      roomLabel.textContent = btn ? btn.textContent : "All rooms";
+      const btn = roomMenu ? roomMenu.querySelector(`[data-room-value="${roomFilter}"]`) : null;
+      if (roomLabel) roomLabel.textContent = btn ? btn.textContent : "All rooms";
 
       applyAll();
       styleGroupsWrap.scrollIntoView({ behavior: "smooth" });
@@ -168,38 +165,62 @@ const getAllSections = () => Array.from(document.querySelectorAll(".style-group"
   const roomFromUrl = params.get("room");
   const styleFromUrl = params.get("style");
 
-  if (roomFromUrl && roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`)) {
+  if (roomFromUrl && roomMenu && roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`)) {
     roomFilter = roomFromUrl;
-    roomLabel.textContent = roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`).textContent;
+    if (roomLabel) roomLabel.textContent = roomMenu.querySelector(`[data-room-value="${roomFromUrl}"]`).textContent;
   }
 
-  if (styleFromUrl && styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`)) {
+  if (styleFromUrl && styleMenu && styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`)) {
     styleFilter = styleFromUrl;
-    styleLabel.textContent = styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`).textContent;
+    if (styleLabel) styleLabel.textContent = styleMenu.querySelector(`[data-style-value="${styleFromUrl}"]`).textContent;
   }
 
-  // ----- Pager rules: hide prev on first page, hide next on last -----
-  const page = parseInt(document.body.getAttribute("data-page") || "1", 10);
-  const total = parseInt(document.body.getAttribute("data-total-pages") || "1", 10);
+  // ----- Pager rules: compute total pages from gallery length, 24 per page -----
+  const page = Math.max(1, parseInt(params.get("p") || "1", 10));
+  const perPage = 24;
+  const total = (window.domesticGallery && Array.isArray(window.domesticGallery))
+    ? Math.max(1, Math.ceil(window.domesticGallery.length / perPage))
+    : 1;
+
   const prev = document.querySelector("[data-pager-prev]");
   const next = document.querySelector("[data-pager-next]");
+  const currentLink = document.querySelector(".pager__link--current");
+  const pageLinks = Array.from(document.querySelectorAll(".pager__link"));
 
-  if (prev) {
-    if (page <= 1) {
-      prev.classList.add("is-disabled");
-      prev.setAttribute("aria-disabled", "true");
-      prev.setAttribute("tabindex", "-1");
-      prev.href = "#";
-    }
+  // Update hrefs for prev/next to preserve room/style filters
+  const base = new URL(window.location.href);
+  const buildHref = (p) => {
+    const u = new URL(base.toString());
+    u.searchParams.set("p", String(p));
+    return u.pathname.split("/").pop() + u.search; // relative file + query
+  };
+
+  if (prev) prev.href = buildHref(Math.max(1, page - 1));
+  if (next) next.href = buildHref(Math.min(total, page + 1));
+
+  if (prev && page <= 1) {
+    prev.classList.add("is-disabled");
+    prev.setAttribute("aria-disabled", "true");
+    prev.setAttribute("tabindex", "-1");
+    prev.href = "#";
   }
-  if (next) {
-    if (page >= total) {
-      next.classList.add("is-disabled");
-      next.setAttribute("aria-disabled", "true");
-      next.setAttribute("tabindex", "-1");
-      next.href = "#";
-    }
+
+  if (next && page >= total) {
+    next.classList.add("is-disabled");
+    next.setAttribute("aria-disabled", "true");
+    next.setAttribute("tabindex", "-1");
+    next.href = "#";
   }
+
+  // Update "current" state in pager links (if you have 1/2 links)
+  // This keeps your UI correct even when you click page 2.
+  pageLinks.forEach(a => a.classList.remove("pager__link--current"));
+  const match = pageLinks.find(a => {
+    const u = new URL(a.href, window.location.href);
+    return (u.searchParams.get("p") || "1") === String(page);
+  });
+  if (match) match.classList.add("pager__link--current");
+  if (currentLink && !match) currentLink.classList.add("pager__link--current");
 
   // initial apply
   applyAll();
