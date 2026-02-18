@@ -176,132 +176,88 @@
   }
 
   // ----- Pager rules: compute total pages from gallery length, 24 per page -----
- // ----- Pager: auto-generate page numbers, 24 per page -----
-const params = new URLSearchParams(window.location.search);
-const page = Math.max(1, parseInt(params.get("p") || "1", 10));
-const perPage = 24;
+   // ----- Pager: auto-generate page numbers, 24 per page -----
+  const pageParam = Math.max(1, parseInt(params.get("p") || "1", 10));
+  const perPage = 24;
 
-const total = (window.domesticGallery && Array.isArray(window.domesticGallery))
-  ? Math.max(1, Math.ceil(window.domesticGallery.length / perPage))
-  : 1;
+  const total = (window.domesticGallery && Array.isArray(window.domesticGallery))
+    ? Math.max(1, Math.ceil(window.domesticGallery.length / perPage))
+    : 1;
 
-const pager = document.querySelector("[data-pager]");
-const prev = document.querySelector("[data-pager-prev]");
-const next = document.querySelector("[data-pager-next]");
-const nums = document.querySelector("[data-pager-nums]");
+  const pager = document.querySelector("[data-pager]");
+  const prev = document.querySelector("[data-pager-prev]");
+  const next = document.querySelector("[data-pager-next]");
+  const nums = document.querySelector("[data-pager-nums]");
 
-// Build href that preserves room/style filters + sets p
-const baseUrl = new URL(window.location.href);
-const buildHref = (p) => {
-  const u = new URL(baseUrl.toString());
-  u.searchParams.set("p", String(p));
-  return u.pathname.split("/").pop() + u.search; // relative file + query
-};
+  const baseUrl = new URL(window.location.href);
 
-// Prev/Next hrefs
-if (prev) prev.href = buildHref(Math.max(1, page - 1));
-if (next) next.href = buildHref(Math.min(total, page + 1));
-
-// Disable prev/next on ends
-if (prev) {
-  const disabled = page <= 1;
-  prev.classList.toggle("is-disabled", disabled);
-  prev.setAttribute("aria-disabled", disabled ? "true" : "false");
-  prev.tabIndex = disabled ? -1 : 0;
-  if (disabled) prev.href = "#";
-}
-
-if (next) {
-  const disabled = page >= total;
-  next.classList.toggle("is-disabled", disabled);
-  next.setAttribute("aria-disabled", disabled ? "true" : "false");
-  next.tabIndex = disabled ? -1 : 0;
-  if (disabled) next.href = "#";
-}
-
-// Auto-generate numbers
-if (nums) {
-  nums.innerHTML = "";
-
-  // Show a small window of pages around current (keeps it tidy)
-  // Example: 1 … 4 5 [6] 7 8 … 20
-  const windowSize = 2; // pages either side of current
-  const start = Math.max(1, page - windowSize);
-  const end = Math.min(total, page + windowSize);
-
-  const makeLink = (p) => {
-    const a = document.createElement("a");
-    a.className = "pager__link";
-    a.href = buildHref(p);
-    a.textContent = String(p);
-    if (p === page) a.classList.add("pager__link--current");
-    return a;
-  };
-
-  const makeDots = () => {
-    const s = document.createElement("span");
-    s.className = "pager__dots";
-    s.textContent = "…";
-    return s;
-  };
-
-  // Always show page 1
-  nums.appendChild(makeLink(1));
-
-  if (start > 2) nums.appendChild(makeDots());
-
-  for (let p = Math.max(2, start); p <= Math.min(total - 1, end); p++) {
-    nums.appendChild(makeLink(p));
-  }
-
-  if (end < total - 1) nums.appendChild(makeDots());
-
-  // Always show last page (if more than 1)
-  if (total > 1) nums.appendChild(makeLink(total));
-}
-
-
-
-
-
-
-  
-  // Update hrefs for prev/next to preserve room/style filters
-  const base = new URL(window.location.href);
   const buildHref = (p) => {
-    const u = new URL(base.toString());
+    const u = new URL(baseUrl.toString());
     u.searchParams.set("p", String(p));
     return u.pathname.split("/").pop() + u.search; // relative file + query
   };
 
-  if (prev) prev.href = buildHref(Math.max(1, page - 1));
-  if (next) next.href = buildHref(Math.min(total, page + 1));
+  // Prev/Next hrefs
+  if (prev) prev.href = buildHref(Math.max(1, pageParam - 1));
+  if (next) next.href = buildHref(Math.min(total, pageParam + 1));
 
-  if (prev && page <= 1) {
-    prev.classList.add("is-disabled");
-    prev.setAttribute("aria-disabled", "true");
-    prev.setAttribute("tabindex", "-1");
-    prev.href = "#";
+  // Disable prev/next on ends
+  if (prev) {
+    const disabled = pageParam <= 1;
+    prev.classList.toggle("is-disabled", disabled);
+    prev.setAttribute("aria-disabled", disabled ? "true" : "false");
+    prev.tabIndex = disabled ? -1 : 0;
+    if (disabled) prev.href = "#";
   }
 
-  if (next && page >= total) {
-    next.classList.add("is-disabled");
-    next.setAttribute("aria-disabled", "true");
-    next.setAttribute("tabindex", "-1");
-    next.href = "#";
+  if (next) {
+    const disabled = pageParam >= total;
+    next.classList.toggle("is-disabled", disabled);
+    next.setAttribute("aria-disabled", disabled ? "true" : "false");
+    next.tabIndex = disabled ? -1 : 0;
+    if (disabled) next.href = "#";
   }
 
-  // Update "current" state in pager links (if you have 1/2 links)
-  // This keeps your UI correct even when you click page 2.
-  pageLinks.forEach(a => a.classList.remove("pager__link--current"));
-  const match = pageLinks.find(a => {
-    const u = new URL(a.href, window.location.href);
-    return (u.searchParams.get("p") || "1") === String(page);
-  });
-  if (match) match.classList.add("pager__link--current");
-  if (currentLink && !match) currentLink.classList.add("pager__link--current");
+  // Auto-generate numbers
+  if (pager && nums) {
+    nums.innerHTML = "";
+
+    const windowSize = 2;
+    const start = Math.max(1, pageParam - windowSize);
+    const end = Math.min(total, pageParam + windowSize);
+
+    const makeLink = (p) => {
+      const a = document.createElement("a");
+      a.className = "pager__link";
+      a.href = buildHref(p);
+      a.textContent = String(p);
+      if (p === pageParam) a.classList.add("pager__link--current");
+      return a;
+    };
+
+    const makeDots = () => {
+      const s = document.createElement("span");
+      s.className = "pager__dots";
+      s.textContent = "…";
+      return s;
+    };
+
+    nums.appendChild(makeLink(1));
+
+    if (start > 2) nums.appendChild(makeDots());
+
+    for (let p = Math.max(2, start); p <= Math.min(total - 1, end); p++) {
+      nums.appendChild(makeLink(p));
+    }
+
+    if (end < total - 1) nums.appendChild(makeDots());
+
+    if (total > 1) nums.appendChild(makeLink(total));
+  }
+
 
   // initial apply
   applyAll();
 })();
+
 
