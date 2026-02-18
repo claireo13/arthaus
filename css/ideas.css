@@ -934,4 +934,19 @@ textarea:focus-visible{
   cursor: not-allowed;
 }
 
+.pager__link--current {
+  position: relative;
+  font-weight: 600;
+}
+
+.pager__link--current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: currentColor;
+}
+
 
