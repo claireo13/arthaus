@@ -221,24 +221,7 @@ textarea:focus-visible{
   margin:0 0 .8rem;
 }
 
-.hero__link{
-  display:inline-flex;
-  align-items:center;
-  gap:.4rem;
-  font-size:.88rem;
-  text-decoration:none;
-  color:#fff;
-  padding:.55rem 1rem;
-  border-radius:var(--radius-button);
-  background:rgba(0,0,0,.45);
-  border:1px solid rgba(255,255,255,.4);
-  transition:background .2s ease, transform .15s ease;
-}
 
-.hero__link:hover{
-  background:rgba(0,0,0,.7);
-  transform:translateY(-1px);
-}
 
 @media (max-width: 640px){
   .hero__banner-content{ padding:1.6rem 1.4rem; }
@@ -948,5 +931,6 @@ textarea:focus-visible{
   height: 2px;
   background: currentColor;
 }
+
 
 
