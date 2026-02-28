@@ -248,6 +248,15 @@ textarea:focus-visible{
   text-align:center;
 }
 
+/* Spacing between hero and auth content (login/register) */
+.page-auth .auth-section{
+  margin-top: clamp(32px, 6vw, 80px);
+  max-width: var(--page-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 clamp(14px, 2vw, 28px);
+}
+
 /* Page-scoped typography */
 .page-home .section-heading{ font-size:1.35rem; }
 .page-home .section-subtitle{ font-size:.95rem; max-width:70ch; line-height:1.55; }
@@ -1059,6 +1068,7 @@ textarea:focus-visible{
     column-count: 4;
   }
 }
+
 
 
 
