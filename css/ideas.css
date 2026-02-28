@@ -678,7 +678,12 @@ textarea:focus-visible{
   background:var(--color-bg-alt);
   padding:1rem 1.05rem;
 }
-.page-home .about-feature__tag{
+.link-card__title{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  opacity:.7;
+  margin-bottom:.35rem;
   color: red;
 }
 
@@ -1054,6 +1059,7 @@ textarea:focus-visible{
     column-count: 4;
   }
 }
+
 
 
 
