@@ -684,7 +684,7 @@ textarea:focus-visible{
   letter-spacing:.14em;
   opacity:.7;
   margin-bottom:.35rem;
-  color: red;
+  
 }
 
 .page-home .link-card:hover{ border-color:rgba(0,0,0,.12); }
@@ -1059,6 +1059,7 @@ textarea:focus-visible{
     column-count: 4;
   }
 }
+
 
 
 
