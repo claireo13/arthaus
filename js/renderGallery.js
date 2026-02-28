@@ -4,7 +4,11 @@
 // Pagination: domestic.html?p=1, domestic.html?p=2 ... with 24 per page.
 
 document.addEventListener("DOMContentLoaded", () => {
-  const data = window.domesticGallery;
+ // Use commercial data if it exists, otherwise domestic
+const data = window.commercialGallery || window.domesticGallery;
+
+// Identify which page this is (used for moodboard saving)
+const pageName = window.commercialGallery ? "commercial" : "domestic";
   const container = document.getElementById("style-groups");
   if (!container || !Array.isArray(data)) return;
 
@@ -63,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.title = item.title || "";
 
       // Moodboard attributes (saveMoodboard.js uses these)
-      card.dataset.mbPage = "domestic";
+    card.dataset.mbPage = pageName;
       card.dataset.mbRoom = item.room;
       card.dataset.mbStyle = item.style;
       card.dataset.mbTitle = item.title || "";
@@ -98,3 +102,4 @@ document.addEventListener("DOMContentLoaded", () => {
     return s ? s[0].toUpperCase() + s.slice(1) : s;
   }
 });
+
