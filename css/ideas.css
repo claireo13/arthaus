@@ -1053,11 +1053,7 @@ textarea:focus-visible{
   opacity: .6;
 }
 
-.page-auth .site-footer{
-  margin-left: calc(-1 * clamp(14px, 2vw, 28px));
-  margin-right: calc(-1 * clamp(14px, 2vw, 28px));
-  width: auto;
-}
+
 
 /* Mobile */
 
@@ -1077,6 +1073,7 @@ textarea:focus-visible{
     column-count: 4;
   }
 }
+
 
 
 
