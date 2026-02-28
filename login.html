@@ -137,7 +137,8 @@
 
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const y = document.getElementById("footer-year");
+  if (y) y.textContent = new Date().getFullYear();
 </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabaseClient.js?v=7"></script>
@@ -155,6 +156,7 @@
 
 </body>
 </html>
+
 
 
 
