@@ -60,7 +60,7 @@ window.commercialGallery = [
     room: "hairdressers",
     roomLabel: "Hairdressers",
     title: "Traditional hairdressers",
-    image: "images/commercial/hairdressers/hairdresser-traditional-medium.jpg",
+    image: "images/commercial/hairdressers/hairdresser-traditional-medium.JPG",
     alt: "traditional hairdressers" 
   },
 
@@ -95,3 +95,4 @@ window.commercialGallery = [
 
 
 ];
+
