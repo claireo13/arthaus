@@ -235,7 +235,7 @@ textarea:focus-visible{
 ---------------------------------- */
 .section-heading{
   font-size:1.2rem;
-  margin:0 0 .35rem;
+  margin: 1 0 0 .35rem;
   font-weight:var(--font-weight-medium);
   text-align:center;
 }
@@ -1059,6 +1059,7 @@ textarea:focus-visible{
     column-count: 4;
   }
 }
+
 
 
 
