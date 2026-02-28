@@ -576,8 +576,8 @@ textarea:focus-visible{
   position:absolute;
   inset:0;
   left:50%; right:50%;
-  margin-left:-40vw;
-  margin-right:-40vw;
+  margin-left:-45vw;
+  margin-right:-45vw;
   background:transparent;
   z-index:-1;
 }
@@ -1033,6 +1033,7 @@ textarea:focus-visible{
     align-items: flex-start;
   }
 }
+
 
 
 
