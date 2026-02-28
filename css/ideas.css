@@ -678,7 +678,7 @@ textarea:focus-visible{
   background:var(--color-bg-alt);
   padding:1rem 1.05rem;
 }
-.link-card__title{
+.page-home .link-card__title{
   font-size:.72rem;
   text-transform:uppercase;
   letter-spacing:.14em;
@@ -1059,6 +1059,7 @@ textarea:focus-visible{
     column-count: 4;
   }
 }
+
 
 
 
