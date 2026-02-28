@@ -290,15 +290,23 @@
       <!-- Add the other style groups exactly like domestic when you're ready -->
 
     </div>
+  
   </section>
 
-  <!-- PAGER -->
-  <nav class="pager" aria-label="Gallery pages">
-    <a class="pager__prev" href="commercial.html" data-pager-prev>← Previous</a>
-    <a class="pager__link pager__link--current" href="commercial.html">1</a>
-    <a class="pager__link" href="commercial-page2.html">2</a>
-    <a class="pager__next" href="commercial-page2.html" data-pager-next>Next →</a>
-  </nav>
+  <!-- PAGER (Prev hidden on first page, Next hidden on last page via JS) -->
+<!-- PAGER (numbers injected via JS) -->
+<nav class="pager" aria-label="Gallery pages" data-pager>
+  <a class="pager__prev" href="commercial.html?p=1" data-pager-prev>← Previous</a>
+
+  <!-- JS will inject page number links here -->
+  <span class="pager__nums" data-pager-nums></span>
+
+  <a class="pager__next" href="commercial.html?p=2" data-pager-next>Next →</a>
+</nav>
+
+
+
+
 
  <footer class="site-footer">
   <div class="footer-inner">
@@ -357,8 +365,6 @@
 
 </div>
 
-
-
   <script src="js/main.js?v=12" defer></script>
 <script src="js/commercialData.js?v=12"></script>
 <script src="js/renderGallery.js?v=12"></script>
@@ -369,6 +375,7 @@
 <script src="js/saveMoodboard.js?v=12"></script>
 </body>
 </html>
+
 
 
 
