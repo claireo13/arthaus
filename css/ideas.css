@@ -256,6 +256,11 @@ textarea:focus-visible{
   margin-right: auto;
   padding: 0 clamp(14px, 2vw, 28px);
 }
+.page-auth .page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 /* Page-scoped typography */
 .page-home .section-heading{ font-size:1.35rem; }
@@ -1068,6 +1073,7 @@ textarea:focus-visible{
     column-count: 4;
   }
 }
+
 
 
 
