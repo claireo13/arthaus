@@ -53,15 +53,15 @@
     </div>
   </section>
 
-  <!-- ROOM STRIP -->
+ <!-- ROOM STRIP -->
   <section id="rooms">
-  <div class="room-strip room-strip--scroll">
+   <div class="room-strip room-strip--scroll">
 
       <!-- Links work both as normal navigation (?room=...) and also filter instantly via JS intercept -->
       <a href="commercial.html?room=office" class="room-card-link" data-room-link="office">
         <div class="room-card">
           <div class="room-card__image">
-            <img src="images/commercial/office/office-modern-medium.jpg" alt="Office design inspiration" loading="lazy" decoding="async">
+            <img src="images/commercial/office/conferenceroom-minimalist-small.jpg" alt="Office design inspiration" loading="lazy" decoding="async">
           </div>
           <div class="room-card__label">Office</div>
         </div>
@@ -70,7 +70,7 @@
       <a href="commercial.html?room=hotel" class="room-card-link" data-room-link="hotel">
         <div class="room-card">
           <div class="room-card__image">
-            <img src="images/commercial/hotel/hotel-contemporary-medium.jpg" alt="Hotel design inspiration" loading="lazy" decoding="async">
+            <img src="images/commercial/hotel/hotel-bedroom-minimalist-small.webp" alt="Hotel design inspiration" loading="lazy" decoding="async">
           </div>
           <div class="room-card__label">Hotel</div>
         </div>
@@ -79,56 +79,33 @@
       <a href="commercial.html?room=reception" class="room-card-link" data-room-link="reception">
         <div class="room-card">
           <div class="room-card__image">
-            <img src="images/commercial/reception/reception-modern-medium.jpg" alt="Reception design inspiration" loading="lazy" decoding="async">
+            <img src="images/commercial/hotel/hotel-lobby-traditional-large.webp" alt="Reception design inspiration" loading="lazy" decoding="async">
           </div>
           <div class="room-card__label">Reception</div>
         </div>
       </a>
 
-      <a href="commercial.html?room=restaurant" class="room-card-link" data-room-link="restaurant">
+      <a href="commercial.html?room=hairdressers" class="room-card-link" data-room-link="hairdressers">
         <div class="room-card">
           <div class="room-card__image">
-            <img src="images/commercial/restaurant/restaurant-industrial-medium.jpg" alt="Restaurant design inspiration" loading="lazy" decoding="async">
+            <img src="images/commercial/hairdressers/hairdresser-traditional-medium" alt="Hairdressers design inspiration" loading="lazy" decoding="async">
           </div>
-          <div class="room-card__label">Restaurant</div>
+          <div class="room-card__label">Hairdressers</div>
         </div>
       </a>
 
-      <a href="commercial.html?room=cafe" class="room-card-link" data-room-link="cafe">
-        <div class="room-card">
-          <div class="room-card__image">
-            <img src="images/commercial/cafe/cafe-scandinavian-medium.jpg" alt="Cafe design inspiration" loading="lazy" decoding="async">
-          </div>
-          <div class="room-card__label">Cafe</div>
-        </div>
-      </a>
+     
 
       <a href="commercial.html?room=retail" class="room-card-link" data-room-link="retail">
         <div class="room-card">
           <div class="room-card__image">
-            <img src="images/commercial/retail/retail-minimalist-medium.jpg" alt="Retail design inspiration" loading="lazy" decoding="async">
+            <img src="images/commercial/shop/shop-modern-medium.webp" alt="Retail design inspiration" loading="lazy" decoding="async">
           </div>
           <div class="room-card__label">Retail</div>
         </div>
       </a>
 
-      <a href="commercial.html?room=meeting" class="room-card-link" data-room-link="meeting">
-        <div class="room-card">
-          <div class="room-card__image">
-            <img src="images/commercial/meeting/meeting-modern-medium.jpg" alt="Meeting room design inspiration" loading="lazy" decoding="async">
-          </div>
-          <div class="room-card__label">Meeting room</div>
-        </div>
-      </a>
-
-      <a href="commercial.html?room=spa" class="room-card-link" data-room-link="spa">
-        <div class="room-card">
-          <div class="room-card__image">
-            <img src="images/commercial/spa/spa-coastal-medium.jpg" alt="Spa design inspiration" loading="lazy" decoding="async">
-          </div>
-          <div class="room-card__label">Spa</div>
-        </div>
-      </a>
+      
 
     </div>
   </section>
@@ -160,139 +137,17 @@
             </div>
           </div>
 
-          <!-- STYLE FILTER -->
-          <div class="filter-pill-wrapper" id="style-wrapper">
-            <button class="filter-pill" id="style-pill" type="button" aria-haspopup="true" aria-expanded="false">
-              <span id="style-pill-label">All styles</span>
-              <span class="filter-pill__caret">▾</span>
-            </button>
-            <div class="filter-menu" id="style-menu" role="menu">
-              <button class="filter-menu__item" type="button" data-style-value="all">All styles</button>
-              <button class="filter-menu__item" type="button" data-style-value="minimalist">Minimalist</button>
-              <button class="filter-menu__item" type="button" data-style-value="modern">Modern</button>
-              <button class="filter-menu__item" type="button" data-style-value="eclectic">Eclectic</button>
-              <button class="filter-menu__item" type="button" data-style-value="rustic">Rustic</button>
-              <button class="filter-menu__item" type="button" data-style-value="contemporary">Contemporary</button>
-              <button class="filter-menu__item" type="button" data-style-value="traditional">Traditional</button>
-              <button class="filter-menu__item" type="button" data-style-value="world">World</button>
-              <button class="filter-menu__item" type="button" data-style-value="coastal">Coastal</button>
-              <button class="filter-menu__item" type="button" data-style-value="industrial">Industrial</button>
-              <button class="filter-menu__item" type="button" data-style-value="country">Country</button>
-              <button class="filter-menu__item" type="button" data-style-value="scandinavian">Scandinavian</button>
-              <button class="filter-menu__item" type="button" data-style-value="victorian">Victorian</button>
-            </div>
-          </div>
-
-        </div>
-
-        <label>
-          <span style="font-size:0.78rem;opacity:.7;margin-right:.25rem;">Sort visible:</span>
-          <select id="sort-select" class="sort-select">
-            <option value="default">Default order</option>
-            <option value="room">Space A–Z</option>
-            <option value="title">Title A–Z</option>
-          </select>
-        </label>
-
-      </div>
-    </div>
-
-    <!-- STYLE GROUPS -->
+       <!-- STYLE GROUPS -->
     <div id="style-groups">
 
       <!-- Aim for 8–12+ images per style section so the mosaic feels intentional -->
 
-      <!-- MINIMALIST -->
-      <section class="style-group" data-style-group="minimalist">
-        <h3 class="style-group__title">Minimalist</h3>
-        <div class="style-group__grid">
-
-          <div class="gallery-thumb" data-room="office" data-style="minimalist" data-title="Minimal workspace">
-            <div class="gallery-thumb__inner">
-              <img src="images/commercial/office/office-minimalist-1.jpg" alt="Minimalist office workspace" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Office</div>
-                <div class="gallery-thumb__title">Minimal workspace</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="retail" data-style="minimalist" data-title="Calm retail display">
-            <div class="gallery-thumb__inner">
-              <img src="images/commercial/retail/retail-minimalist-1.jpg" alt="Minimalist retail interior" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Retail</div>
-                <div class="gallery-thumb__title">Calm retail display</div>
-                <div class="gallery-thumb__style">Style: Minimalist</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Add more minimalist images... -->
-
-        </div>
-      </section>
-
-      <!-- MODERN -->
-      <section class="style-group" data-style-group="modern">
-        <h3 class="style-group__title">Modern</h3>
-        <div class="style-group__grid">
-
-          <div class="gallery-thumb" data-room="reception" data-style="modern" data-title="Brand-forward reception">
-            <div class="gallery-thumb__inner">
-              <img src="images/commercial/reception/reception-modern-1.jpg" alt="Modern reception interior" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Reception</div>
-                <div class="gallery-thumb__title">Brand-forward reception</div>
-                <div class="gallery-thumb__style">Style: Modern</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-thumb" data-room="meeting" data-style="modern" data-title="Modern meeting space">
-            <div class="gallery-thumb__inner">
-              <img src="images/commercial/meeting/meeting-modern-1.jpg" alt="Modern meeting room" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Meeting room</div>
-                <div class="gallery-thumb__title">Modern meeting space</div>
-                <div class="gallery-thumb__style">Style: Modern</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Add more modern images... -->
-
-        </div>
-      </section>
-
-      <!-- INDUSTRIAL -->
-      <section class="style-group" data-style-group="industrial">
-        <h3 class="style-group__title">Industrial</h3>
-        <div class="style-group__grid">
-
-          <div class="gallery-thumb" data-room="restaurant" data-style="industrial" data-title="Raw textures dining">
-            <div class="gallery-thumb__inner">
-              <img src="images/commercial/restaurant/restaurant-industrial-1.jpg" alt="Industrial restaurant interior" loading="lazy" decoding="async">
-              <div class="gallery-thumb__body">
-                <div class="gallery-thumb__room">Restaurant</div>
-                <div class="gallery-thumb__title">Raw textures dining</div>
-                <div class="gallery-thumb__style">Style: Industrial</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Add more industrial images... -->
-
-        </div>
-      </section>
-
-      <!-- Add the other style groups exactly like domestic when you're ready -->
-
     </div>
-  
   </section>
 
+
+
+          
   <!-- PAGER (Prev hidden on first page, Next hidden on last page via JS) -->
 <!-- PAGER (numbers injected via JS) -->
 <nav class="pager" aria-label="Gallery pages" data-pager>
@@ -375,6 +230,7 @@
 <script src="js/saveMoodboard.js?v=13"></script>
 </body>
 </html>
+
 
 
 
