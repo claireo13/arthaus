@@ -1074,7 +1074,14 @@ textarea:focus-visible{
   }
 }
 
-
+/* Home page: make About, Join and Contact content slightly narrower */
+.page-home .about-layout,
+.page-home .join-layout,
+.page-home .contact-layout{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 
